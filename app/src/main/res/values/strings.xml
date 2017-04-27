@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Wild Life</string>
+    <string name="title_animal_detail">Animal Detail</string>
+    <string name="select_photo">Select Photo</string>
+</resources>
