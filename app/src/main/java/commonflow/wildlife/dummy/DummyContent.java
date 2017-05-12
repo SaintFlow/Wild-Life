@@ -29,7 +29,7 @@ public class DummyContent {
         // Add some sample items.
         addItem(new DummyItem("1", "Raccoon", "test1"));
         addItem(new DummyItem("2", "Squirrel", "test2"));
-        addItem(new DummyItem("3", "Seagull", "test2"));
+        addItem(new DummyItem("3", "Seagull", "test3"));
 
     }
 

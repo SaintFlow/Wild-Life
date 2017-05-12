@@ -1,18 +1,42 @@
 package commonflow.wildlife;
 
+import android.Manifest;
+import android.annotation.TargetApi;
+import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.preference.DialogPreference;
+import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
+import android.widget.TextView;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 /**
  * An activity representing a single Animal detail screen. This
@@ -22,12 +46,43 @@ import android.view.MenuItem;
  */
 public class AnimalDetailActivity extends AppCompatActivity {
 
+    private static final int MY_PERMISSIONS_READ_EXTERNAL_STORAGE = 0;
+    private static final int REQUEST_CAMERA = 1;
+    private static final int SELECT_FILE = 1;
+    //private Boolean result = false;
+    private CharSequence userChosenTask = "";
+    Bitmap bitmap;
+    private ImageView ivImage;
+    private Button btn;
+    private LinearLayout li;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_animal_detail);
         Toolbar toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
         setSupportActionBar(toolbar);
+
+        NestedScrollView sv = (NestedScrollView) findViewById(R.id.animal_detail_container);
+
+        Button buttonTest = new Button(getApplicationContext());
+        //Log.d("Child Count", sv.getChildCount() + "");
+        //li = (LinearLayout) findViewById(R.id.animal_detail);
+        li = new LinearLayout(getApplicationContext());
+        LinearLayout.LayoutParams liParams = new LinearLayout.LayoutParams
+                (LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+
+        li.setOrientation(LinearLayout.VERTICAL);
+        TextView testers = new TextView(getApplicationContext());
+        buttonTest.setLayoutParams(liParams);
+        buttonTest.setText("Select Photo");
+        li.addView(buttonTest);
+        testers.setText("Will this work?");
+        //Log.d("Child Count", sv.getChildCount() + "");
+        //sv.removeAllViews();
+        //Log.d("Child Count", sv.getChildCount() + "");
+        //sv.addView(li);
+        Log.d("Activity Turn", "Activity");
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -37,6 +92,17 @@ public class AnimalDetailActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        //btn = (Button) findViewById(R.id.btnSelectPhoto);
+
+
+        ivImage = new ImageView(getApplicationContext());
+
+        /*for (int x = 0; x < 3; x++)
+        {
+            ImageView image = new ImageView(AnimalDetailActivity.this);
+            R.id.an
+        }*/
 
         // Show the Up button in the action bar.
         ActionBar actionBar = getSupportActionBar();
@@ -67,28 +133,38 @@ public class AnimalDetailActivity extends AppCompatActivity {
         }
     }
 
-    /*public boolean checkPermission(final Context context)
-    {
 
+
+    /*public void checkPermission() {
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.READ_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            // Should we show an explanation?
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                    Manifest.permission.READ_EXTERNAL_STORAGE)) {
+
+                // Show an explanation to the user *asynchronously* -- don't block
+                // this thread waiting for the user's response! After the user
+                // sees the explanation, try again to request the permission.
+
+            } else {
+
+                // No explanation needed, we can request the permission.
+
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                        MY_PERMISSIONS_READ_EXTERNAL_STORAGE);
+
+                // MY_PERMISSIONS_REQUEST_READ_CONTACTS is an
+                // app-defined int constant. The callback method gets the
+                // result of the request.
+            }
+        }
     }*/
 
-    public void selectImage()
-    {
-        final CharSequence[] items = {"Take Photo", "Choose from Library", "Cancel"};
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Add Photo!");
-        builder.setItems(items, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int item) {
-                CharSequence userChosenTask;
-                if (items[item].equals("Take Photo"))
-                {
-                    userChosenTask = "Take Photo";
-                }
-            }
-        });
 
-    }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
