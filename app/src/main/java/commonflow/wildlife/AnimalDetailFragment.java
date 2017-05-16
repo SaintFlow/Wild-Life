@@ -7,9 +7,14 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
+import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
 import android.support.annotation.IdRes;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -31,11 +36,17 @@ import android.widget.TextView;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileDescriptor;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import commonflow.wildlife.dummy.DummyContent;
+import commonflow.wildlife.dummy.FileChecker;
 
 /**
  * A fragment representing a single Animal detail screen.
@@ -63,6 +74,7 @@ public class AnimalDetailFragment extends Fragment {
     private ImageView ivImage;
 
     private static final int MY_PERMISSIONS_READ_EXTERNAL_STORAGE = 0;
+    private static final int MY_PERMISSION_MANAGE_DOCUMENTS = 1;
     private static final int REQUEST_CAMERA = 1;
     private static final int SELECT_FILE = 1;
     //private Boolean result = false;
@@ -100,6 +112,7 @@ public class AnimalDetailFragment extends Fragment {
         if (mItem != null) {
             //((TextView) rootView.findViewById(R.id.animal_detail)).setText(mItem.details);
 
+
             Button buttonTest = new Button(getActivity());
             //Log.d("Child Count", sv.getChildCount() + "");
              li = (LinearLayout) rootView.findViewById(R.id.animal_detail);
@@ -128,7 +141,40 @@ public class AnimalDetailFragment extends Fragment {
             //iv.setId(View.generateViewId());
             testers.setText("Will this work?");
             li.addView(ivImage);
-            li.addView(testers);
+
+            //Adding pictures from file
+            //FileChecker dd = new FileChecker(getContext());
+            //dd.deleteFile();
+            FileChecker fc = new FileChecker(getContext());
+            Log.d("file output" , fc.printFile());
+            ArrayList<String> animals = fc.getAnimalLocations(mItem.content);
+            int i = 0;
+            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.MANAGE_DOCUMENTS},
+                    MY_PERMISSION_MANAGE_DOCUMENTS);
+            for (String ani : animals)
+            {
+                Bitmap b = null;
+                try {
+                    Uri uriTemp = Uri.parse(ani);
+                    //getActivity().getApplicationContext().grantUriPermission(getActivity().getPackageName(), uriTemp, Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                    b = getBitmapFromUri(uriTemp);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                ImageView temp = new ImageView(getContext());
+                temp.setImageBitmap(b);
+                /*File f = new File(ani);
+                try {
+                    Bitmap b = BitmapFactory.decodeStream(new FileInputStream(f));
+                    ImageView temp = new ImageView(getContext());
+                    temp.setImageBitmap(b);
+                    //Uri myUri = Uri.parse(ani);
+                    //temp.setImageURI(myUri);
+                    li.addView(temp);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }*/
+            }
 
             Log.d("Fragment", "fragment turn");
             //sv.removeAllViews();
@@ -142,8 +188,12 @@ public class AnimalDetailFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == Activity.RESULT_OK) {
-            if (requestCode == SELECT_FILE)
+            if (requestCode == SELECT_FILE) {
+                Uri var = data.getData();
+                getActivity().grantUriPermission(getActivity().getPackageName(), var,
+                        Intent.FLAG_GRANT_READ_URI_PERMISSION);
                 onSelectFromGalleryResult(data);
+            }
             else if (requestCode == REQUEST_CAMERA)
                 onCaptureImageResult(data);
         }
@@ -272,8 +322,23 @@ public class AnimalDetailFragment extends Fragment {
     {
         Intent intent = new Intent();
         intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
+        if (android.os.Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
+            intent.setAction(Intent.ACTION_GET_CONTENT);
+        } else {
+            intent.setAction(Intent.ACTION_OPEN_DOCUMENT);
+            intent.addCategory(Intent.CATEGORY_OPENABLE);
+        }
         startActivityForResult(intent.createChooser(intent, "Select File"), SELECT_FILE);
+    }
+
+    private Bitmap getBitmapFromUri(Uri uri) throws IOException {
+
+        ParcelFileDescriptor parcelFileDescriptor =
+                getActivity().getContentResolver().openFileDescriptor(uri, "r");
+        FileDescriptor fileDescriptor = parcelFileDescriptor.getFileDescriptor();
+        Bitmap image = BitmapFactory.decodeFileDescriptor(fileDescriptor);
+        parcelFileDescriptor.close();
+        return image;
     }
 
     private void onSelectFromGalleryResult(Intent data)
@@ -283,16 +348,21 @@ public class AnimalDetailFragment extends Fragment {
         if (data != null)
         {
             try {
-                Log.d("get Data", data.getDataString());
+
                 bm = MediaStore.Images.Media.getBitmap(
                         getActivity().getApplicationContext().getContentResolver(),data.getData());
+                Uri path = data.getData();
+
+                Log.d("get Data", path.getPath());
+
+                FileChecker fc = new FileChecker(getContext());
+                fc.writeToFile(mItem.content + ", " + path.toString());
+
                 Log.d("Setting image", "setting image");
                 ImageView second = new ImageView(getActivity());
                 jc = bm;
                 second.setImageBitmap(bm);
-                TextView sedfs = new TextView(getActivity());
-                sedfs.setText("FAFADA");
-                li.addView(sedfs);
+
                 isImageAdded = true;
 
 
@@ -320,6 +390,12 @@ public class AnimalDetailFragment extends Fragment {
         if (isImageAdded)
         {
             ivImage.setImageBitmap(jc);
+            TextView sedfs = new TextView(getContext());
+            sedfs.setText("FAFADA");
+            sedfs.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT));
+            li.addView(sedfs);
+            isImageAdded = false;
         }
     }
 
