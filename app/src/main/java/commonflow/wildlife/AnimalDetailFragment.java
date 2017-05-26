@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -41,11 +42,17 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Random;
 
+import commonflow.wildlife.dummy.AnimalPicture;
+import commonflow.wildlife.dummy.DBHandler;
 import commonflow.wildlife.dummy.DummyContent;
+import commonflow.wildlife.dummy.Encyclopedia;
 import commonflow.wildlife.dummy.FileChecker;
 
 /**
@@ -75,13 +82,15 @@ public class AnimalDetailFragment extends Fragment {
 
     private static final int MY_PERMISSIONS_READ_EXTERNAL_STORAGE = 0;
     private static final int MY_PERMISSION_MANAGE_DOCUMENTS = 1;
-    private static final int REQUEST_CAMERA = 1;
+    private static final int REQUEST_CAMERA = 2;
     private static final int SELECT_FILE = 1;
     //private Boolean result = false;
     private CharSequence userChosenTask = "";
     private LinearLayout li;
     private boolean isImageAdded;
     private Bitmap jc;
+    DBHandler db;
+
     public AnimalDetailFragment() {
     }
 
@@ -108,22 +117,19 @@ public class AnimalDetailFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.animal_detail, container, false);
 
-        // Show the dummy content as text in a TextView.
-        if (mItem != null) {
-            //((TextView) rootView.findViewById(R.id.animal_detail)).setText(mItem.details);
-
-
+        if (mItem != null)
+        {
+            //Creating the database
+            db = new DBHandler(getContext());
             Button buttonTest = new Button(getActivity());
-            //Log.d("Child Count", sv.getChildCount() + "");
-             li = (LinearLayout) rootView.findViewById(R.id.animal_detail);
 
+            //Creating the linear layout
+            li = (LinearLayout) rootView.findViewById(R.id.animal_detail);
             LinearLayout.LayoutParams liParams = new LinearLayout.LayoutParams
                     (LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-
             li.setOrientation(LinearLayout.VERTICAL);
 
-
-            TextView testers = new TextView(getActivity());
+            //Setting and adding the Select button to the layout
             buttonTest.setLayoutParams(liParams);
             buttonTest.setText("Select Photo");
             buttonTest.setOnClickListener(new View.OnClickListener() {
@@ -138,47 +144,41 @@ public class AnimalDetailFragment extends Fragment {
             ViewGroup.LayoutParams imageParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT);
             ivImage.setLayoutParams(imageParams);
-            //iv.setId(View.generateViewId());
-            testers.setText("Will this work?");
             li.addView(ivImage);
 
-            //Adding pictures from file
-            //FileChecker dd = new FileChecker(getContext());
-            //dd.deleteFile();
-            FileChecker fc = new FileChecker(getContext());
-            Log.d("file output" , fc.printFile());
-            ArrayList<String> animals = fc.getAnimalLocations(mItem.content);
+            List<AnimalPicture> animals = db.getAnimalList(mItem.content);
             int i = 0;
-            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.MANAGE_DOCUMENTS},
-                    MY_PERMISSION_MANAGE_DOCUMENTS);
-            for (String ani : animals)
-            {
-                Bitmap b = null;
+            //Creating encyclopedia
+            Encyclopedia ec = new Encyclopedia();
+
+            //Adding each stored picture from the database into view
+            for (AnimalPicture ani : animals) {
+                Bitmap b;
+
                 try {
-                    Uri uriTemp = Uri.parse(ani);
-                    //getActivity().getApplicationContext().grantUriPermission(getActivity().getPackageName(), uriTemp, Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                    b = getBitmapFromUri(uriTemp);
+                    Uri uriTemp = Uri.parse(ani.getAnimal_picture_url());
+                    FileInputStream fis = getContext().openFileInput(ani.getAnimal_picture_url());
+                    Log.d("URL", "URL is " + uriTemp.toString());
+                    b = BitmapFactory.decodeStream(fis);
+                    ImageView temp = new ImageView(getContext());
+                    temp.setPadding(5, 5, 5, 5);
+                    temp.setImageBitmap(b);
+                    li.addView(temp);
+                    fis.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                ImageView temp = new ImageView(getContext());
-                temp.setImageBitmap(b);
-                /*File f = new File(ani);
-                try {
-                    Bitmap b = BitmapFactory.decodeStream(new FileInputStream(f));
-                    ImageView temp = new ImageView(getContext());
-                    temp.setImageBitmap(b);
-                    //Uri myUri = Uri.parse(ani);
-                    //temp.setImageURI(myUri);
-                    li.addView(temp);
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                }*/
+                //First check if encyclopedia has the animal, if so, add its contents underneath
+                //the picture
+                if (ec.hasAnimal(mItem.content)) {
+                    if (i < ec.getAnimalSize(mItem.content)) {
+                        TextView factoid = new TextView(getContext());
+                        factoid.setText(ec.getAnimalEntry(mItem.content, i));
+                        li.addView(factoid);
+                        i++;
+                    }
+                }
             }
-
-            Log.d("Fragment", "fragment turn");
-            //sv.removeAllViews();
-            //Log.d("Child Count", sv.getChildCount() + "");
         }
 
         return rootView;
@@ -189,9 +189,6 @@ public class AnimalDetailFragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == SELECT_FILE) {
-                Uri var = data.getData();
-                getActivity().grantUriPermission(getActivity().getPackageName(), var,
-                        Intent.FLAG_GRANT_READ_URI_PERMISSION);
                 onSelectFromGalleryResult(data);
             }
             else if (requestCode == REQUEST_CAMERA)
@@ -199,9 +196,10 @@ public class AnimalDetailFragment extends Fragment {
         }
     }
 
+
+
     //For marsh-mellow builds that have permission alerts
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
-    public static boolean checkPermission(final Context context)
+    public boolean checkPermission(final Context context)
     {
         int currentAPIVersion = Build.VERSION.SDK_INT;
         if(currentAPIVersion>=android.os.Build.VERSION_CODES.M)
@@ -220,19 +218,19 @@ public class AnimalDetailFragment extends Fragment {
                         @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
                         public void onClick(DialogInterface dialog, int which)
                         {
-                            ActivityCompat.requestPermissions((Activity) context,
-                                    new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                            requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
                                     MY_PERMISSIONS_READ_EXTERNAL_STORAGE); } });
                     AlertDialog alert = alertBuilder.create();
                     alert.show();
                 } else
                 {
-                    ActivityCompat.requestPermissions((Activity) context,
-                            new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+
+                    requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
                             MY_PERMISSIONS_READ_EXTERNAL_STORAGE);
                 }
                 return false;
-            } else
+            }
+            else
             {
                 return true;
             }
@@ -245,6 +243,7 @@ public class AnimalDetailFragment extends Fragment {
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            String permissions[], int[] grantResults) {
+        Log.d("request Result", "onRequestPermissionsResult");
         switch (requestCode) {
             case MY_PERMISSIONS_READ_EXTERNAL_STORAGE: {
                 // If request is cancelled, the result arrays are empty.
@@ -256,6 +255,7 @@ public class AnimalDetailFragment extends Fragment {
                         cameraIntent();
                     } else if (userChosenTask.equals("Choose from Library"))
                     {
+                        Log.d("Success", "can choose from gallery");
                         galleryIntent();
                     }
 
@@ -267,9 +267,19 @@ public class AnimalDetailFragment extends Fragment {
                 }
                 break;
             }
+            case MY_PERMISSION_MANAGE_DOCUMENTS:
+            {
+                Log.d("manage document case", "please work");
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
-            // other 'case' lines to check for other
-            // permissions this app might request
+
+                } else {
+
+                    Log.d("MANAGE", "ERROR: manage documents permission NOT successful");
+                }
+                break;
+            }
         }
     }
 
@@ -347,55 +357,44 @@ public class AnimalDetailFragment extends Fragment {
         Log.d("selectfromGal", "here");
         if (data != null)
         {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
+            Random random = new Random();
+            //String filename = mItem.content + String.format("%s.%s", sdf.format( new Date() ),
+            //random.nextInt(9));
+            String filename = mItem.content + sdf.format(new Date());
+            //File file = new File(filename, );
+            AnimalPicture ac = new AnimalPicture();
+            ac.setAnimal_picture_url(filename);
+            ac.setAnimal_name(mItem.content);
+            db.addNewAnimalPicture(ac);
+            FileOutputStream out = null;
             try {
 
                 bm = MediaStore.Images.Media.getBitmap(
                         getActivity().getApplicationContext().getContentResolver(),data.getData());
                 Uri path = data.getData();
 
+                out = getContext().openFileOutput(filename, Context.MODE_PRIVATE);
+                bm.compress(Bitmap.CompressFormat.PNG, 100, out);
+
                 Log.d("get Data", path.getPath());
-
-                FileChecker fc = new FileChecker(getContext());
-                fc.writeToFile(mItem.content + ", " + path.toString());
-
-                Log.d("Setting image", "setting image");
-                ImageView second = new ImageView(getActivity());
-                jc = bm;
-                second.setImageBitmap(bm);
-
-                isImageAdded = true;
-
 
                 //To update the fragment to display the image, detach it, attach it, then commit
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
                 ft.detach(this).attach(this).commit();
 
-                //li.addView(ivImage);
-
-                //Bundle extras = data.getExtras();
-                //Log.d("Extra?", data.hasExtra("data") + "");
-                //bm = (Bitmap) extras.get("data");
             } catch (IOException e)
             {
                 e.printStackTrace();
+            } finally {
+                if (out != null)
+                    try {
+                        out.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
             }
 
-        }
-    }
-
-    @Override
-    public void onResume()
-    {
-        super.onResume();
-        if (isImageAdded)
-        {
-            ivImage.setImageBitmap(jc);
-            TextView sedfs = new TextView(getContext());
-            sedfs.setText("FAFADA");
-            sedfs.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
-                    ViewGroup.LayoutParams.WRAP_CONTENT));
-            li.addView(sedfs);
-            isImageAdded = false;
         }
     }
 

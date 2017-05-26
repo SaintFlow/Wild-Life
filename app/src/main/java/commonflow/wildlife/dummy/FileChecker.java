@@ -1,6 +1,7 @@
 package commonflow.wildlife.dummy;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -36,6 +37,32 @@ public class FileChecker {
                 e.printStackTrace();
             }
         }
+    }
+
+    public void createNewFile(Bitmap bm, String filename)
+    {
+        FileOutputStream out = null;
+        try
+        {
+            out = new FileOutputStream(filename);
+            bm.compress(Bitmap.CompressFormat.PNG, 100, out);
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+        } finally
+        {
+            try
+            {
+                if (out != null)
+                {
+                    out.close();
+                }
+            } catch (IOException e)
+            {
+                e.printStackTrace();
+            }
+        }
+
     }
 
     public void writeToFile(String line)
