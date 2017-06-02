@@ -89,6 +89,7 @@ public class AnimalDetailFragment extends Fragment {
     private LinearLayout li;
     private boolean isImageAdded;
     private Bitmap jc;
+
     DBHandler db;
 
     public AnimalDetailFragment() {
@@ -139,7 +140,7 @@ public class AnimalDetailFragment extends Fragment {
                 }
             });
             li.addView(buttonTest);
-
+            int i = 0;
             ivImage = new ImageView(getActivity());
             ViewGroup.LayoutParams imageParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -147,7 +148,7 @@ public class AnimalDetailFragment extends Fragment {
             li.addView(ivImage);
 
             List<AnimalPicture> animals = db.getAnimalList(mItem.content);
-            int i = 0;
+            int animalPosition = 0;
             //Creating encyclopedia
             Encyclopedia ec = new Encyclopedia();
 
@@ -161,6 +162,24 @@ public class AnimalDetailFragment extends Fragment {
                     Log.d("URL", "URL is " + uriTemp.toString());
                     b = BitmapFactory.decodeStream(fis);
                     ImageView temp = new ImageView(getContext());
+                    temp.setTag(animalPosition);
+
+                    temp.setOnClickListener(new View.OnClickListener()
+                    {
+                        @Override
+                        public void onClick(View view)
+                        {
+                         //Start Slide Show activity
+                            Intent slideshowIntent = new Intent(getActivity(),
+                                    SlideShowActivity.class);
+                            //view.get
+
+                            slideshowIntent.putExtra("AnimalName", mItem.content);
+                            slideshowIntent.putExtra("Position", (Integer) view.getTag());
+                            startActivity(slideshowIntent);
+
+                        }
+                    });
                     temp.setPadding(5, 5, 5, 5);
                     temp.setImageBitmap(b);
                     li.addView(temp);
@@ -178,7 +197,10 @@ public class AnimalDetailFragment extends Fragment {
                         i++;
                     }
                 }
+                //i++;
+                animalPosition++;
             }
+            //animalPosition = 0;
         }
 
         return rootView;

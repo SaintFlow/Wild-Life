@@ -48,4 +48,10 @@ public class AnimalPicture
         this.animal_id = animal_id;
     }
 
+    //Equal if their URLs are equal
+    @Override
+    public boolean equals(Object obj) {
+        AnimalPicture newObj = (AnimalPicture) obj;
+        return this.getAnimal_picture_url().equals(newObj.getAnimal_picture_url());
+    }
 }
