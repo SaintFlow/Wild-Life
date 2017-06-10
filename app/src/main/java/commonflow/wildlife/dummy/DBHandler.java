@@ -38,7 +38,7 @@ public class DBHandler extends SQLiteOpenHelper
     public void onCreate(SQLiteDatabase db)
     {
         String CREATE_ANIMAL_DETAIL_TABLE = "CREATE TABLE " + TABLE_ANIMAL_DETAIL + "("
-                + KEY_ID + "INTEGER PRIMARY KEY,"
+                + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + KEY_ANIMAL + " TEXT,"
                 + KEY_PICTURE_URL + " TEXT " + ")";
         db.execSQL(CREATE_ANIMAL_DETAIL_TABLE);
@@ -62,6 +62,8 @@ public class DBHandler extends SQLiteOpenHelper
 
         values.put(KEY_ANIMAL, apc.getAnimal_name());
         values.put(KEY_PICTURE_URL, apc.getAnimal_picture_url());
+
+
 
         //Inserting row
         db.insert(TABLE_ANIMAL_DETAIL, null, values);
@@ -100,6 +102,7 @@ public class DBHandler extends SQLiteOpenHelper
             do {
                     AnimalPicture aniPic = new AnimalPicture();
                     //aniPic.setAnimal_id(Integer.parseInt(cursor.getString(0)));
+                    aniPic.setAnimal_id(cursor.getInt(0));
                     aniPic.setAnimal_name(cursor.getString(1));
                     aniPic.setAnimal_picture_url(cursor.getString(2));
 

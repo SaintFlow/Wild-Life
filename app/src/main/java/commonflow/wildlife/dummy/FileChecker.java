@@ -20,15 +20,15 @@ import java.util.ArrayList;
  */
 public class FileChecker {
 
-    private File outputStream;
+    //private File outputStream;
     private String filename = "pictures.txt";
     private Context c;
 
     public FileChecker(Context context)
     {
         c = context;
-        File outputStream = context.getFileStreamPath(filename);
-        if (outputStream == null || !outputStream.exists())
+        //File outputStream = context.getFileStreamPath(filename);
+        /*if (outputStream == null || !outputStream.exists())
         {
             outputStream = new File(context.getFilesDir(), filename);
             try {
@@ -36,7 +36,7 @@ public class FileChecker {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
+        }*/
     }
 
     public void createNewFile(Bitmap bm, String filename)
@@ -62,6 +62,11 @@ public class FileChecker {
                 e.printStackTrace();
             }
         }
+
+    }
+
+    public void writeImageToExternal()
+    {
 
     }
 
