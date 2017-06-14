@@ -1,18 +1,25 @@
 package commonflow.wildlife;
 
+
+import android.app.FragmentManager;
 import android.content.Context;
+
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.net.Uri;
+
 import android.os.Environment;
+
 import android.support.v4.view.PagerAdapter;
+
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -33,11 +40,13 @@ public class CustomPagerAdapter extends PagerAdapter
 
     private Context mContext;
     private LayoutInflater mLayoutInflater;
+    private FragmentManager fm;
     DBHandler db;
-    List<AnimalPicture> animals;
+    public static List<AnimalPicture> animals;
 
-    public CustomPagerAdapter(Context context, String animal)
+    public CustomPagerAdapter(Context context, String animal, FragmentManager fragman)
     {
+        fm = fragman;
         mContext = context;
         mLayoutInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         db = new DBHandler(context);
@@ -47,7 +56,8 @@ public class CustomPagerAdapter extends PagerAdapter
 
     }
 
-    public boolean isExternalStorageWritable() {
+    public boolean isExternalStorageWritable()
+    {
         String state = Environment.getExternalStorageState();
         if (Environment.MEDIA_MOUNTED.equals(state)) {
             return true;
@@ -55,7 +65,8 @@ public class CustomPagerAdapter extends PagerAdapter
         return false;
     }
 
-    public File getAlbumStorageDir(String albumName) {
+    public File getAlbumStorageDir(String albumName)
+    {
         // Get the directory for the user's public pictures directory.
         File file = new File(Environment.getExternalStoragePublicDirectory(
                 Environment.DIRECTORY_PICTURES), albumName);
@@ -66,12 +77,13 @@ public class CustomPagerAdapter extends PagerAdapter
     }
 
     @Override
-    public Object instantiateItem(ViewGroup container, int position) {
+    public Object instantiateItem(final ViewGroup container, int position) {
         final View itemView = mLayoutInflater.inflate(R.layout.pager_item, container, false);
 
         final ImageView imageView = (ImageView) itemView.findViewById(R.id.imageView);
-        Button saveButton = (Button) itemView.findViewById(R.id.saveButton);
-        Button deleteButton = (Button) itemView.findViewById(R.id.deleteButton);
+        ImageButton saveButton = (ImageButton) itemView.findViewById(R.id.saveButton);
+
+        ImageButton deleteButton = (ImageButton) itemView.findViewById(R.id.deleteButton);
         saveButton.setTag(animals.get(position));
         deleteButton.setTag(animals.get(position));
         deleteButton.setOnClickListener(new View.OnClickListener()
@@ -79,12 +91,7 @@ public class CustomPagerAdapter extends PagerAdapter
             @Override
             public void onClick(View v)
             {
-                AnimalPicture animal = (AnimalPicture) v.getTag();
-                db.deleteAnimalPicture(animal.getAnimal_id());
-                mContext.deleteFile(animal.getAnimal_picture_url());
-                animals.remove(animal);
-
-
+                showNoticeDialog((AnimalPicture) v.getTag());
             }
         });
         saveButton.setOnClickListener(new View.OnClickListener()
@@ -139,8 +146,8 @@ public class CustomPagerAdapter extends PagerAdapter
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Button saveButton = (Button) itemView.findViewById(R.id.saveButton);
-                Button deleteButton = (Button) itemView.findViewById(R.id.deleteButton);
+                ImageButton saveButton = (ImageButton) itemView.findViewById(R.id.saveButton);
+                ImageButton deleteButton = (ImageButton) itemView.findViewById(R.id.deleteButton);
 
                 if (saveButton.getVisibility() != saveButton.INVISIBLE)
                 {
@@ -180,5 +187,21 @@ public class CustomPagerAdapter extends PagerAdapter
         container.removeView((RelativeLayout) object);
     }
 
+    /**
+     * Displays an alert dialog for deleting an animal picture from the SlideShow view.
+     * The argument is an AnimalPicture, the picture that is selected for deletion.
+     *
+     * @param aniPic the image that is targeted for deletion
+     */
+    public void showNoticeDialog(AnimalPicture aniPic)
+    {
+        // Create an instance of the dialog fragment and show it
+        NoticeDialogFragment dialog = new NoticeDialogFragment();
+        dialog.setAniPic(aniPic);
+        AppCompatActivity test = (AppCompatActivity) mContext;
+        test.getSupportFragmentManager();
+        dialog.show(fm,"d");
+
+    }
 
 }

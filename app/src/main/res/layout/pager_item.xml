@@ -8,33 +8,27 @@
         android:layout_height="match_parent"
         android:id="@+id/imageView" />
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="@dimen/abc_action_button_min_width_material"
-        android:layout_height="@dimen/abc_action_button_min_height_material"
-        android:text="Delete"
-        android:id="@+id/deleteButton"
-        android:layout_gravity="center_horizontal"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="64dp"
-        android:layout_marginStart="64dp"
-        android:layout_toLeftOf="@+id/saveButton"
-        android:layout_toStartOf="@+id/saveButton"
-        android:visibility="invisible"/>
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Save to Phone"
         android:id="@+id/saveButton"
-        android:layout_alignParentBottom="true"
+        android:src="@drawable/ic_action_save"
+        android:layout_marginRight="108dp"
+        android:layout_marginEnd="108dp"
+        android:background="@android:color/transparent"
+        android:layout_alignTop="@+id/deleteButton"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="102dp"
-        android:layout_marginEnd="102dp"
-        android:visibility="invisible"/>
+        android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:id="@+id/deleteButton"
+        android:src="@drawable/ic_action_delete2"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/saveButton"
+        android:layout_marginRight="101dp"
+        android:layout_marginEnd="101dp" />
 
 </RelativeLayout>

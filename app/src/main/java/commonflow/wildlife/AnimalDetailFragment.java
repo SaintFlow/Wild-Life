@@ -118,6 +118,7 @@ public class AnimalDetailFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.animal_detail, container, false);
 
+
         if (mItem != null)
         {
             //Creating the database
@@ -182,6 +183,8 @@ public class AnimalDetailFragment extends Fragment {
                     });
                     temp.setPadding(5, 5, 5, 5);
                     temp.setImageBitmap(b);
+                    temp.setAdjustViewBounds(true);
+
                     li.addView(temp);
                     fis.close();
                 } catch (IOException e) {
@@ -309,6 +312,7 @@ public class AnimalDetailFragment extends Fragment {
     {
         final CharSequence[] items = {"Take Photo", "Choose from Library", "Cancel"};
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+
         builder.setTitle("Add Photo!");
         builder.setItems(items, new DialogInterface.OnClickListener() {
             @Override
