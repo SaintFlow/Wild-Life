@@ -107,9 +107,20 @@ public class AnimalDetailFragment extends Fragment {
 
             Activity activity = this.getActivity();
             CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
+
+            //Create and set image to be added into the collapsing toolbar
+            ImageView iv = new ImageView(getContext());
+            ViewGroup.LayoutParams imageParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.MATCH_PARENT);
+            iv.setLayoutParams(imageParams);
+            iv.setImageResource(mItem.image);
+            iv.setScaleType(ImageView.ScaleType.CENTER_CROP);
+
             if (appBarLayout != null) {
                 appBarLayout.setTitle(mItem.content);
+                appBarLayout.addView(iv);
             }
+
         }
     }
 
@@ -117,7 +128,6 @@ public class AnimalDetailFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.animal_detail, container, false);
-
 
         if (mItem != null)
         {
@@ -207,6 +217,35 @@ public class AnimalDetailFragment extends Fragment {
         }
 
         return rootView;
+    }
+
+    @Override
+    public void onResume()
+    {
+        if (getArguments().containsKey(ARG_ITEM_ID)) {
+            // Load the dummy content specified by the fragment
+            // arguments. In a real-world scenario, use a Loader
+            // to load content from a content provider.
+            mItem = DummyContent.ITEM_MAP.get(getArguments().getString(ARG_ITEM_ID));
+
+            Activity activity = this.getActivity();
+            CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
+
+            //Create and set image to be added into the collapsing toolbar
+            ImageView iv = new ImageView(getContext());
+            ViewGroup.LayoutParams imageParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.MATCH_PARENT);
+            iv.setLayoutParams(imageParams);
+            iv.setImageResource(mItem.image);
+            iv.setScaleType(ImageView.ScaleType.CENTER_CROP);
+
+            if (appBarLayout != null) {
+                appBarLayout.setTitle(mItem.content);
+                appBarLayout.addView(iv);
+            }
+
+        }
+        super.onResume();
     }
 
     @Override

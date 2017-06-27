@@ -31,7 +31,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="commonflow.wildlife.AnimalListActivity" />
         </activity>
-        <activity android:name=".SlideShowActivity"></activity>
+        <activity android:name=".SlideShowActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

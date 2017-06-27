@@ -9,7 +9,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
 
     tools:context="commonflow.wildlife.SlideShowActivity"
-    android:background="@color/abc_input_method_navigation_guard">
+    android:background="@color/abc_input_method_navigation_guard"
+    android:fitsSystemWindows="true">
 
     <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/pager"
