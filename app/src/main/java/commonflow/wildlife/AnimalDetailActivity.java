@@ -98,11 +98,6 @@ public class AnimalDetailActivity extends AppCompatActivity {
 
         ivImage = new ImageView(getApplicationContext());
 
-        /*for (int x = 0; x < 3; x++)
-        {
-            ImageView image = new ImageView(AnimalDetailActivity.this);
-            R.id.an
-        }*/
 
         // Show the Up button in the action bar.
         ActionBar actionBar = getSupportActionBar();

@@ -63,10 +63,10 @@ public class SlideShowActivity extends AppCompatActivity implements NoticeDialog
                 hideSystemUI();
                 ImageButton saveButton = (ImageButton) findViewById(R.id.saveButton);
                 ImageButton deleteButton = (ImageButton) findViewById(R.id.deleteButton);
-                View rectangle = (View) findViewById(R.id.tint_rectangle);
-                rectangle.setVisibility(saveButton.INVISIBLE);
-                saveButton.setVisibility(saveButton.INVISIBLE);
-                deleteButton.setVisibility(deleteButton.INVISIBLE);
+                View rectangle = findViewById(R.id.tint_rectangle);
+                rectangle.setVisibility(Button.INVISIBLE);
+                saveButton.setVisibility(Button.INVISIBLE);
+                deleteButton.setVisibility(Button.INVISIBLE);
             }
 
             @Override
@@ -91,9 +91,9 @@ public class SlideShowActivity extends AppCompatActivity implements NoticeDialog
                 ImageButton saveButton = (ImageButton) findViewById(R.id.saveButton);
                 ImageButton deleteButton = (ImageButton) findViewById(R.id.deleteButton);
                 View rectangle = (View) findViewById(R.id.tint_rectangle);
-                rectangle.setVisibility(saveButton.INVISIBLE);
-                saveButton.setVisibility(saveButton.INVISIBLE);
-                deleteButton.setVisibility(deleteButton.INVISIBLE);
+                rectangle.setVisibility(Button.INVISIBLE);
+                saveButton.setVisibility(Button.INVISIBLE);
+                deleteButton.setVisibility(Button.INVISIBLE);
             }
         });
 

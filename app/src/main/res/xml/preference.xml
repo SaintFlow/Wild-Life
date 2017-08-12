@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <SwitchPreference
+        android:key="hd_preview"
+        android:title="HD preview"
+        android:summary="Show HD preview of pictures in slideshow and encyclopedia. May cause slowdown for high resolution pictures"
+        android:defaultValue="false"
+        />
+</PreferenceScreen>

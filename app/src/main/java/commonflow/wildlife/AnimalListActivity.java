@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 
+import commonflow.wildlife.dummy.Animal;
 import commonflow.wildlife.dummy.DummyContent;
 
 import java.util.List;
@@ -45,17 +46,9 @@ public class AnimalListActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         toolbar.setTitle(getTitle());
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
         View recyclerView = findViewById(R.id.animal_list);
         assert recyclerView != null;
+
         setupRecyclerView((RecyclerView) recyclerView);
 
         if (findViewById(R.id.animal_detail_container) != null) {
@@ -70,15 +63,24 @@ public class AnimalListActivity extends AppCompatActivity {
     }
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
-        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(DummyContent.ITEMS));
+        if (getIntent().hasExtra("class"))
+        {
+            recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(
+                    DummyContent.animalClasses.get(getIntent().getIntExtra("class", 0))
+            ));
+        } else {
+
+            recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(DummyContent.ITEMS));
+        }
     }
 
     public class SimpleItemRecyclerViewAdapter
             extends RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder> {
 
-        private final List<DummyContent.DummyItem> mValues;
+        private final List<Animal> mValues;
 
-        public SimpleItemRecyclerViewAdapter(List<DummyContent.DummyItem> items) {
+        public SimpleItemRecyclerViewAdapter(List<Animal> items) {
+
             mValues = items;
         }
 
@@ -111,7 +113,6 @@ public class AnimalListActivity extends AppCompatActivity {
                         Context context = v.getContext();
                         Intent intent = new Intent(context, AnimalDetailActivity.class);
                         intent.putExtra(AnimalDetailFragment.ARG_ITEM_ID, holder.mItem.id);
-
                         context.startActivity(intent);
                     }
                 }
@@ -127,7 +128,7 @@ public class AnimalListActivity extends AppCompatActivity {
             public final View mView;
             public final TextView mIdView;
             public final TextView mContentView;
-            public DummyContent.DummyItem mItem;
+            public Animal mItem;
 
             public ViewHolder(View view) {
                 super(view);

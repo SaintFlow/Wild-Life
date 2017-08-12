@@ -5,12 +5,14 @@ import android.app.Activity;
 import android.app.FragmentManager;
 import android.content.Context;
 
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
 import android.os.Build;
 import android.os.Environment;
 
+import android.preference.PreferenceManager;
 import android.support.v4.view.PagerAdapter;
 
 import android.support.v4.view.ViewPager;
@@ -28,6 +30,8 @@ import android.widget.ImageView;
 
 import android.widget.RelativeLayout;
 import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -74,10 +78,7 @@ public class CustomPagerAdapter extends PagerAdapter
     public boolean isExternalStorageWritable()
     {
         String state = Environment.getExternalStorageState();
-        if (Environment.MEDIA_MOUNTED.equals(state)) {
-            return true;
-        }
-        return false;
+        return (Environment.MEDIA_MOUNTED.equals(state));
     }
 
     /**
@@ -158,64 +159,77 @@ public class CustomPagerAdapter extends PagerAdapter
         });
 
         //Make the save, rectangle and delete buttons invisible when first loaded
-        if (saveButton.getVisibility() == saveButton.VISIBLE)
-            saveButton.setVisibility(saveButton.INVISIBLE);
-        if (deleteButton.getVisibility() == deleteButton.VISIBLE)
-            deleteButton.setVisibility(deleteButton.INVISIBLE);
-        if (rectangle.getVisibility() == rectangle.VISIBLE)
-            rectangle.setVisibility(rectangle.INVISIBLE);
+        if (saveButton.getVisibility() == Button.VISIBLE)
+            saveButton.setVisibility(Button.INVISIBLE);
+        if (deleteButton.getVisibility() == Button.VISIBLE)
+            deleteButton.setVisibility(Button.INVISIBLE);
+        if (rectangle.getVisibility() == View.VISIBLE)
+            rectangle.setVisibility(View.INVISIBLE);
 
         //Make the Status bar invisible by default
         //Check the build to determine how to hide the status bar
         //hideStatusBar();
-        Bitmap b = null;
+        Bitmap b;
         try
         {
             FileInputStream fis = mContext.openFileInput(animals.get(position).getAnimal_picture_url());
             //Log.d("name", animals.toString());
-            b = BitmapFactory.decodeStream(fis);
+            SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(mContext);
+            Boolean isHD = sharedPref.getBoolean("hd_key", false);
+
+            //Check if we should load an HD image or not
+            if (isHD)
+            {
+                b = BitmapFactory.decodeStream(fis);
+                imageView.setImageBitmap(b);
+            } else
+            {
+                Glide.with(mContext).load(mContext.getFileStreamPath(animals.get(position).getAnimal_picture_url()))
+                        .into(imageView);
+            }
+
         } catch (Exception io)
         {
             io.printStackTrace();
         }
-        imageView.setImageBitmap(b);
+        //imageView.setImageBitmap(b);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ImageButton saveButton = (ImageButton) itemView.findViewById(R.id.saveButton);
                 ImageButton deleteButton = (ImageButton) itemView.findViewById(R.id.deleteButton);
-                View rectangle = (View) itemView.findViewById(R.id.tint_rectangle);
+                View rectangle = itemView.findViewById(R.id.tint_rectangle);
 
                 //Hide or show objects when the image is pressed once
-                if (saveButton.getVisibility() == saveButton.VISIBLE)
+                if (saveButton.getVisibility() == Button.VISIBLE)
                 {
                     hideSystemUI();
                     saveButton.startAnimation(animationFadeOut);
-                    saveButton.setVisibility(saveButton.INVISIBLE);
+                    saveButton.setVisibility(Button.INVISIBLE);
                 } else
                 {
                     showSystemUI();
-                    saveButton.setVisibility(saveButton.VISIBLE);
+                    saveButton.setVisibility(Button.VISIBLE);
                     saveButton.startAnimation(animationFadeIn);
                 }
 
-                if (deleteButton.getVisibility() != deleteButton.INVISIBLE)
+                if (deleteButton.getVisibility() != Button.INVISIBLE)
                 {
                     deleteButton.startAnimation(animationFadeOut);
-                    deleteButton.setVisibility(deleteButton.INVISIBLE);
+                    deleteButton.setVisibility(Button.INVISIBLE);
                 } else
                 {
-                    deleteButton.setVisibility(deleteButton.VISIBLE);
+                    deleteButton.setVisibility(Button.VISIBLE);
                     deleteButton.startAnimation(animationFadeIn);
                 }
 
-                if (rectangle.getVisibility() != rectangle.INVISIBLE)
+                if (rectangle.getVisibility() != View.INVISIBLE)
                 {
                     rectangle.startAnimation(animationFadeOut);
-                    rectangle.setVisibility(deleteButton.INVISIBLE);
+                    rectangle.setVisibility(Button.INVISIBLE);
                 } else
                 {
-                    rectangle.setVisibility(deleteButton.VISIBLE);
+                    rectangle.setVisibility(Button.VISIBLE);
                     rectangle.startAnimation(animationFadeIn);
                 }
             }
@@ -227,7 +241,7 @@ public class CustomPagerAdapter extends PagerAdapter
     @Override
     public boolean isViewFromObject(View view, Object object)
     {
-        return view == ((RelativeLayout) object);
+        return view ==  object;
     }
 
     @Override

@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.database.Cursor;
@@ -16,6 +17,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 import android.os.ParcelFileDescriptor;
+import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.support.annotation.IdRes;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -35,6 +37,8 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileDescriptor;
@@ -49,6 +53,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
+import commonflow.wildlife.dummy.Animal;
 import commonflow.wildlife.dummy.AnimalPicture;
 import commonflow.wildlife.dummy.DBHandler;
 import commonflow.wildlife.dummy.DummyContent;
@@ -71,7 +76,7 @@ public class AnimalDetailFragment extends Fragment {
     /**
      * The dummy content this fragment is presenting.
      */
-    private DummyContent.DummyItem mItem;
+    private Animal mItem;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -87,8 +92,6 @@ public class AnimalDetailFragment extends Fragment {
     //private Boolean result = false;
     private CharSequence userChosenTask = "";
     private LinearLayout li;
-    private boolean isImageAdded;
-    private Bitmap jc;
 
     DBHandler db;
 
@@ -101,8 +104,7 @@ public class AnimalDetailFragment extends Fragment {
 
         if (getArguments().containsKey(ARG_ITEM_ID)) {
             // Load the dummy content specified by the fragment
-            // arguments. In a real-world scenario, use a Loader
-            // to load content from a content provider.
+            // arguments.
             mItem = DummyContent.ITEM_MAP.get(getArguments().getString(ARG_ITEM_ID));
 
             Activity activity = this.getActivity();
@@ -113,7 +115,8 @@ public class AnimalDetailFragment extends Fragment {
             ViewGroup.LayoutParams imageParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                     ViewGroup.LayoutParams.MATCH_PARENT);
             iv.setLayoutParams(imageParams);
-            iv.setImageResource(mItem.image);
+            Glide.with(getActivity()).load(mItem.image).into(iv);
+            //iv.setImageResource(mItem.image);
             iv.setScaleType(ImageView.ScaleType.CENTER_CROP);
 
             if (appBarLayout != null) {
@@ -141,9 +144,11 @@ public class AnimalDetailFragment extends Fragment {
                     (LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
             li.setOrientation(LinearLayout.VERTICAL);
 
+
+
             //Setting and adding the Select button to the layout
             buttonTest.setLayoutParams(liParams);
-            buttonTest.setText("Select Photo");
+            buttonTest.setText("Add a Photo");
             buttonTest.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -173,7 +178,20 @@ public class AnimalDetailFragment extends Fragment {
                     Log.d("URL", "URL is " + uriTemp.toString());
                     b = BitmapFactory.decodeStream(fis);
                     ImageView temp = new ImageView(getContext());
-                    temp.setTag(animalPosition);
+
+                    SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getContext());
+                    Boolean isHD = sharedPref.getBoolean("hd_key", false);
+
+                    //Check if we should load an HD image or not
+                    if (isHD)
+                    {
+                        temp.setImageBitmap(b);
+                    }
+                    else
+                    {
+                        Glide.with(getContext()).load(getContext().getFileStreamPath(ani.getAnimal_picture_url())).into(temp);
+                    }
+                    temp.setTag(R.integer.tag_id, animalPosition);
 
                     temp.setOnClickListener(new View.OnClickListener()
                     {
@@ -186,13 +204,13 @@ public class AnimalDetailFragment extends Fragment {
                             //view.get
 
                             slideshowIntent.putExtra("AnimalName", mItem.content);
-                            slideshowIntent.putExtra("Position", (Integer) view.getTag());
+                            slideshowIntent.putExtra("Position", (Integer) view.getTag(R.integer.tag_id));
                             startActivity(slideshowIntent);
 
                         }
                     });
                     temp.setPadding(5, 5, 5, 5);
-                    temp.setImageBitmap(b);
+                    //temp.setImageBitmap(b);
                     temp.setAdjustViewBounds(true);
 
                     li.addView(temp);
@@ -331,19 +349,6 @@ public class AnimalDetailFragment extends Fragment {
                 }
                 break;
             }
-            case MY_PERMISSION_MANAGE_DOCUMENTS:
-            {
-                Log.d("manage document case", "please work");
-                if (grantResults.length > 0
-                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-
-
-                } else {
-
-                    Log.d("MANAGE", "ERROR: manage documents permission NOT successful");
-                }
-                break;
-            }
         }
     }
 
@@ -416,6 +421,14 @@ public class AnimalDetailFragment extends Fragment {
         return image;
     }
 
+    private AnimalPicture createAnimalPicture(String url)
+    {
+        AnimalPicture ac = new AnimalPicture();
+        ac.setAnimal_picture_url(url);
+        ac.setAnimal_name(mItem.content);
+        return ac;
+    }
+
     private void onSelectFromGalleryResult(Intent data)
     {
         Bitmap bm;
@@ -428,21 +441,16 @@ public class AnimalDetailFragment extends Fragment {
             //random.nextInt(9));
             String filename = mItem.content + sdf.format(new Date());
             //File file = new File(filename, );
-            AnimalPicture ac = new AnimalPicture();
-            ac.setAnimal_picture_url(filename);
-            ac.setAnimal_name(mItem.content);
+            AnimalPicture ac = createAnimalPicture(filename);
             db.addNewAnimalPicture(ac);
             FileOutputStream out = null;
             try {
 
                 bm = MediaStore.Images.Media.getBitmap(
                         getActivity().getApplicationContext().getContentResolver(),data.getData());
-                Uri path = data.getData();
 
                 out = getContext().openFileOutput(filename, Context.MODE_PRIVATE);
-                bm.compress(Bitmap.CompressFormat.PNG, 100, out);
-
-                Log.d("get Data", path.getPath());
+                bm.compress(Bitmap.CompressFormat.JPEG, 100, out);
 
                 //To update the fragment to display the image, detach it, attach it, then commit
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
@@ -465,22 +473,36 @@ public class AnimalDetailFragment extends Fragment {
 
 
     private void onCaptureImageResult(Intent data) {
+
+
         Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
-        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-        thumbnail.compress(Bitmap.CompressFormat.JPEG, 90, bytes);
-        File destination = new File(Environment.getExternalStorageDirectory(),
-                System.currentTimeMillis() + ".jpg");
-        FileOutputStream fo;
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
+        String filename = mItem.content + sdf.format(new Date());
+        AnimalPicture ac = createAnimalPicture(filename);
+        db.addNewAnimalPicture(ac);
+
+        FileOutputStream out = null;
         try {
-            destination.createNewFile();
-            fo = new FileOutputStream(destination);
-            fo.write(bytes.toByteArray());
-            fo.close();
+            if (thumbnail != null) {
+                out = getContext().openFileOutput(filename, Context.MODE_PRIVATE);
+                thumbnail.compress(Bitmap.CompressFormat.JPEG, 100, out);
+
+                //To update the fragment to display the image, detach it, attach it, then commit
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.detach(this).attach(this).commit();
+            }
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+        } finally {
+            if (out != null)
+                try {
+                    out.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
         }
-        ivImage.setImageBitmap(thumbnail);
+
     }
 }
