@@ -78,7 +78,54 @@ public class Encyclopedia
                 "and the act are rarely seen. (Got a picture of a pair of beavers courting?)";
 
 
-        //Coyotes, from 'Coyote, The Ultimate Survivor'
+        //Coyotes, from 'Coyote, The Ultimate Survivor'; Wikipedia; livescience.com;
+        //National Geographic;
+        final  String coyote1 = "The average male coyote weighs 8 to 20 kg (18 to 44 lb) and the " +
+                "average female 7 to 18 kg (15 to 40 lb). Their fur color is predominantly light" +
+                " gray and red or fulvous interspersed with black and white, though it varies " +
+                "somewhat with geography.";
+        final  String coyote2 = "Coyote's are not a fussy feeder. When one source of its food is" +
+                "gone, such as geese, it will simply look for another. Other food sources are deer," +
+                "rabbits, hares, rodents, reptiles, amphibians, fish and invertebrates";
+        final  String coyote3 = "Humans aside, cougars and gray wolves are the coyote's only " +
+                "serious enemies. Nevertheless, coyotes do sometimes mate with gray, eastern, " +
+                "or red wolves, producing hybrids colloquially called \"coywolves\"";
+        final  String coyote4 = "Coyotes are solitary creatures and mark their territory with " +
+                "urine. During the winter, coyotes tend to become more social, though. During " +
+                "the cold months, they join forces, creating hunting packs to find food more " +
+                "easily.";
+        final  String coyote5 = "he basic social unit of a coyote pack is a family containing " +
+                "a reproductive female. However, unrelated coyotes may join forces for " +
+                "companionship, or to bring down prey too large to attack singly. Such " +
+                "\"nonfamily\" packs are only temporary, and may consist of bachelor males, " +
+                "nonreproductive females and subadult young. Families are formed in midwinter," +
+                " when females enter estrus.";
+        final  String coyote6 = "Both the male and female participate in taking care of the pups. " +
+                "The male will bring food to the female and the pups and help protect them " +
+                "from predators.";
+        final  String coyote7 = "They can live alone, or in pairs. And when they are up against a" +
+                "large prey, they can hunt in packs just like a pack of wolves";
+        final  String coyote8 = "By fall, the pups are old enough to hunt for themselves. " +
+                "Coyotes are usually ready to mate at 20 to 22 months old. In the wild, coyotes " +
+                "live around 14 years.";
+        final  String coyote9 = "It's also an particularly intelligent carnivore. American Indians" +
+                "believed it was endowed with supernatural senses. It is virtually " +
+                "indestructible, frequently coming back to life";
+        final  String coyote10 = "Coyotes are formidable in the field where they enjoy keen " +
+                "vision and a strong sense of smell. They can run up to 40 miles an hour. " +
+                "In the fall and winter, they form packs for more effective hunting.";
+        final  String coyote11 = "Unlike otters, coyotes can't catch fish. But through clever" +
+                "tactics, coyotes can steal the fish caught by otters by antagonizing them" +
+                "until they drop their catch.";
+        final  String coyote12 = "Coyotes pose danger to livestock such as sheep. Coyotes have" +
+                "been hunted by men, and the death tolls can reach 500 000 per yer. Remarkably," +
+                "the coyote have still successfully survived, unlike wolf populations";
+        final  String coyote13 = "Pups instinctively become limp when picked up. They are carried" +
+                "to the den when danger arrives, or when the pack needs to go home.";
+        final String coyote14 = "Coyotes and badgers have been known to work as a team and" +
+                "hunt cooperatively when hunting small rodents. The badger is a much better and" +
+                "faster digger, while the coyote has much butter hearing for finding rodents " +
+                "underground";
 
         //Seagull strings
         final  String seagull1 = "Sea gulls like freshwater, but they’ll drink sea water. " +
@@ -120,10 +167,51 @@ public class Encyclopedia
         final String squirrel4 = "Grey squirrels, commonly found in North America, are " +
                 "medium-size squirrels. They grow to 15 to 20 inches (38.1 to 50.8 cm) in " +
                 "length, with their tails adding an extra 6 to 9.5 inches (15.24 to 24.13 cm) " +
-                "to their length. They typically weigh about 1 to 1.5 pounds (0.45 to 0.68 kg). ";
+                "to their length. They typically weigh about 1 to 1.5 pounds (0.45 to 0.68 kg).";
+
+        //Eeastern Chipmunk from Wikipedia; 'Eastern Chipmunk - Films Nature Web TV';
+        //nhptv.org/natureworks; interesting-animal-facts.com;
+        final String easternChipmunk1 = "The name \"chipmunk\" comes from the Ottawa word " +
+                "ajidamoonh or the Ojibwe word ajidamoo, which translates literally as \"one " +
+                "who descends trees headlong.";
+        final String easternChipmunk2 = "Eastern Chipmunks can be found in deciduous forests," +
+                " bushes, and gardens in eastern Canada and America.";
+        final String easternChipmunk3 = "A hyperactive animal, the chipmunk spends most of its" +
+                "days collecting seeds. It prefers bulbs, seeds, fruits, nuts, green plants," +
+                " mushrooms, insects, worms, and bird eggs. Like other chipmunks, it " +
+                "transports food in pouches in its cheeks.";
+        final String easternChipmunk4 = "When it is excited or scaled, the chipmunk waves its " +
+                "tail and gives out a series of loud chirps.";
+        final String easternChipmunk5 = "The eastern chipmunk defends its burrow and lives a " +
+                "solitary life, except during mating season. Females usually produce one or two " +
+                "litters of three to five young. The two breeding seasons are from February " +
+                "to April and from June to August. During the winter, the chipmunk may enter " +
+                "long periods of torpor, but does not truly hibernate.";
+        final String easternChipmunk6 = "Predators of the eastern chipmunk include hawks, foxes, " +
+                "raccoons, weasels, snakes, bobcats, lynx, and domestic cats. On average, " +
+                "eastern chipmunks live three or more years in the wild, but in captivity " +
+                "they may live as long as eight years.";
+        final String easternChipmunk7 = "It can climb trees well, but constructs underground" +
+                " nests with extensive tunnel systems, often with several entrances. To hide " +
+                "the construction of its burrow, the eastern chipmunk carries soil to a " +
+                "different location in its cheek pouches.";
+        final String easternChipmunk8 = "The eastern chipmunk doesn't truly hibernate, but it " +
+                "does spend a lot of time sleeping. It may wake up every few weeks to eat the " +
+                "food it has stored.";
+        final String easternChipmunk9 = "The female usually has one litter a year with between " +
+                "three and five young. The young will come above ground when they are about six " +
+                "weeks old.";
+        final String easternChipmunk10 = "Eastern Chipmunks can be territorial and do not like " +
+                "other chipmunks entering their territory. The range of their territory is about " +
+                "half an acre which often overlaps the territories of other chipmunks; they" +
+                " are mostly defensive about areas closest to their burrow.";
+        final String easternChipmunk11 = "This rodent has four toes on each of its front feet. " +
+                "The back feet have five toes each.";
 
         ency = new HashMap<>();
-        List<String> seagulls = new ArrayList<String>();
+
+        //Seagulls
+        List<String> seagulls = new ArrayList<>();
         seagulls.add(seagull1);
         seagulls.add(seagull2);
         seagulls.add(seagull3);
@@ -131,7 +219,7 @@ public class Encyclopedia
 
         ency.put("Seagull", seagulls);
 
-        List<String> raccoons = new ArrayList<String>();
+        List<String> raccoons = new ArrayList<>();
         raccoons.add(raccoon1);
         raccoons.add(raccoon2);
         raccoons.add(raccoon3);
@@ -140,7 +228,7 @@ public class Encyclopedia
         ency.put("Raccoon", raccoons);
 
         //Squirrels
-        List<String> squirrels = new ArrayList<String>();
+        List<String> squirrels = new ArrayList<>();
         squirrels.add(squirrel1);
         squirrels.add(squirrel2);
         squirrels.add(squirrel3);
@@ -149,7 +237,7 @@ public class Encyclopedia
         ency.put("Squirrel", squirrels);
 
         //Beavers
-        List<String> beavers = new ArrayList<String>();
+        List<String> beavers = new ArrayList<>();
         beavers.add(northAmericanBeaver1);
         beavers.add(northAmericanBeaver2);
         beavers.add(northAmericanBeaver3);
@@ -170,6 +258,28 @@ public class Encyclopedia
         beavers.add(northAmericanBeaver18);
 
         ency.put("Beaver", beavers);
+
+        //Coyotes
+        List<String> coyotes = new ArrayList<>();
+        coyotes.add(coyote1); coyotes.add(coyote2); coyotes.add(coyote3); coyotes.add(coyote4);
+        coyotes.add(coyote5); coyotes.add(coyote6); coyotes.add(coyote7); coyotes.add(coyote8);
+        coyotes.add(coyote9); coyotes.add(coyote10); coyotes.add(coyote11); coyotes.add(coyote12);
+        coyotes.add(coyote13); coyotes.add(coyote14);
+
+        ency.put("Coyote", coyotes);
+
+        //Eastern Chipmunks
+        List<String> easternChipmunks = new ArrayList<>();
+        easternChipmunks.add(easternChipmunk1); easternChipmunks.add(easternChipmunk2);
+        easternChipmunks.add(easternChipmunk3); easternChipmunks.add(easternChipmunk4);
+        easternChipmunks.add(easternChipmunk5); easternChipmunks.add(easternChipmunk6);
+        easternChipmunks.add(easternChipmunk7); easternChipmunks.add(easternChipmunk8);
+        easternChipmunks.add(easternChipmunk9); easternChipmunks.add(easternChipmunk10);
+        easternChipmunks.add(easternChipmunk11);
+
+        ency.put("Eastern Chipmunk", easternChipmunks);
+
+        //Groundhogs
 
     }
 
