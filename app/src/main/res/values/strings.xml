@@ -9,4 +9,8 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_species_help">SpeciesHelpActivity</string>
     <string name="title_activity_options">OptionsActivity</string>
+    <string name="full_animal_list">Full Animal List</string>
+    <string name="animal_classes">Animal Classes</string>
+    <string name="trouble_identifying_an_animal">Trouble Identifying an Animal?</string>
+    <string name="options">Options</string>
 </resources>

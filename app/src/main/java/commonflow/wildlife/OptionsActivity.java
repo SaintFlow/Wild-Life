@@ -24,7 +24,6 @@ implements OptionsFragment.OnFragmentInteractionListener{
                 new OptionsFragment()).commit();
     }
 
-
     @Override
     public void onFragmentInteraction(Uri uri) {
 

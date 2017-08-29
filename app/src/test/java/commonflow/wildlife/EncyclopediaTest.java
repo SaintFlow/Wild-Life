@@ -22,6 +22,7 @@ public class EncyclopediaTest
         assertTrue(ency.hasAnimal("Raccoon"));
         assertTrue(ency.hasAnimal("Squirrel"));
 
+
         assertFalse("Should not have Elephant", ency.hasAnimal("Elephant"));
     }
 }
