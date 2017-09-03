@@ -55,15 +55,48 @@ public class DummyContent {
         Animal beaver = new Animal("1", "Beaver", "test1", R.drawable.beaver);
         beaver.setAnimalClass("mammal");
         Animal coyote = new Animal("2", "Coyote", "test1", R.drawable.coyote);
-        Animal easternChipmunk = new Animal("3", "Eastern Chipmunk", "test3", R.drawable.eastern_chipmunk);
+        coyote.setAnimalClass("mammal");
+        Animal easternChipmunk = new Animal("3", "Eastern Chipmunk", "test3",
+                R.drawable.eastern_chipmunk);
+        easternChipmunk.setAnimalClass("mammal");
         Animal groundhog = new Animal("4", "Groundhog", "test3", R.drawable.groundhog);
+        groundhog.setAnimalClass("mammal");
         Animal mink = new Animal("5", "Mink", "test1", R.drawable.mink);
+        mink.setAnimalClass("mammal");
         Animal opossum = new Animal("6", "Opossum", "test1", R.drawable.opossum);
+        opossum.setAnimalClass("mammal");
         Animal raccoon = new Animal("7", "Raccoon", "test1", R.drawable.raccoon);
+        raccoon.setAnimalClass("mammal");
         Animal redFox = new Animal("8", "Red Fox", "test1", R.drawable.red_fox);
+        redFox.setAnimalClass("mammal");
         Animal seagull = new Animal("9", "Seagull", "test3", R.drawable.seagull);
+        seagull.setAnimalClass("bird");
         Animal skunk = new Animal("10", "Skunk", "test3", R.drawable.skunk);
+        skunk.setAnimalClass("mammal");
         Animal squirrel = new Animal("11", "Squirrel", "test2", R.drawable.squirrel);
+        squirrel.setAnimalClass("mammal");
+        Animal canadianLynx = new Animal("12", "Canada Lynx", "test3", R.drawable.canadian_lynx);
+        canadianLynx.setSpecies("Lynx canadensis");
+        canadianLynx.setAnimalClass("mammal");
+        Animal whiteTailedDeer = new Animal("13", "White-tailed Deer", "test3",
+                R.drawable.white_tailed_deer);
+        whiteTailedDeer.setAnimalClass("mammal");
+        whiteTailedDeer.setSpecies("Odocoileus virginianus");
+
+        Animal easternCottontail = new Animal("14", "Eastern Cottontail", "test3",
+                R.drawable.eastern_cottontail);
+        easternCottontail.setAnimalClass("mammal");
+        easternCottontail.setSpecies("Sylvilagus floridanus");
+        Animal bluejay = new Animal("15", "Blue Jay", "test3", R.drawable.bluejay);
+        bluejay.setAnimalClass("bird");
+        bluejay.setSpecies("Cyanocitta cristata");
+        Animal northAmericanPorcupine = new Animal("16", "North American Porcupine", "test3",
+                R.drawable.north_american_porcupine);
+        northAmericanPorcupine.setAnimalClass("mammal");
+        northAmericanPorcupine.setSpecies("Erethizon dorsatum");
+        Animal canadaGoose = new Animal("17", "Canada Goose", "test3", R.drawable.canada_goose);
+        canadaGoose.setAnimalClass("bird");
+        canadaGoose.setSpecies("Branta canadensis");
 
         //Add animals to universal animal list
         addItem(beaver);
@@ -77,21 +110,25 @@ public class DummyContent {
         addItem(seagull);
         addItem(skunk);
         addItem(squirrel);
+        addItem(canadianLynx);
+        addItem(whiteTailedDeer);
+        addItem(easternCottontail);
+        addItem(bluejay);
+        addItem(northAmericanPorcupine);
+        addItem(canadaGoose);
 
         //Adding Mammals to mammal list
-        addMammalItem(beaver);
-        addMammalItem(coyote);
-        addMammalItem(easternChipmunk);
-        addMammalItem(groundhog);
-        addMammalItem(mink);
-        addMammalItem(opossum);
-        addMammalItem(raccoon);
-        addMammalItem(redFox);
-        addMammalItem(skunk);
-        addMammalItem(squirrel);
-
-        //Adding birds to bird list
-        addBirdItem(seagull);
+        for (Animal animal : ITEMS)
+        {
+            if (animal.getAnimalClass().equals("mammal"))
+            {
+                addMammalItem(animal);
+            }
+            if (animal.getAnimalClass().equals("bird"))
+            {
+                addBirdItem(animal);
+            }
+        }
 
         //Add Animal Class Lists to SparseArray
         animalClasses.append(1, MAMMALS);

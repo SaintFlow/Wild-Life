@@ -224,6 +224,7 @@ public class AnimalDetailFragment extends Fragment {
                     if (i < ec.getAnimalSize(mItem.content)) {
                         TextView factoid = new TextView(getContext());
                         factoid.setText(ec.getAnimalEntry(mItem.content, i));
+                        factoid.setLayoutParams(liParams);
                         li.addView(factoid);
                         i++;
                     }

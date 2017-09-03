@@ -1,6 +1,7 @@
 package commonflow.wildlife.dummy;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -12,8 +13,7 @@ public class Encyclopedia
 
     private HashMap<String, List<String>> ency;
 
-    public Encyclopedia()
-    {
+    public Encyclopedia() {
         //North American beaver, taken from Wikipedia, sciencekids.co.nz, PBS videos
         final String northAmericanBeaver1 = "The North American Beaver is the largest rodent in " +
                 "North America, with the European beaver being the second-largest rodent in " +
@@ -80,47 +80,47 @@ public class Encyclopedia
 
         //Coyotes, from 'Coyote, The Ultimate Survivor'; Wikipedia; livescience.com;
         //National Geographic;
-        final  String coyote1 = "The average male coyote weighs 8 to 20 kg (18 to 44 lb) and the " +
+        final String coyote1 = "The average male coyote weighs 8 to 20 kg (18 to 44 lb) and the " +
                 "average female 7 to 18 kg (15 to 40 lb). Their fur color is predominantly light" +
                 " gray and red or fulvous interspersed with black and white, though it varies " +
                 "somewhat with geography.";
-        final  String coyote2 = "Coyote's are not a fussy feeder. When one source of its food is" +
+        final String coyote2 = "Coyote's are not a fussy feeder. When one source of its food is" +
                 "gone, such as geese, it will simply look for another. Other food sources are deer," +
                 "rabbits, hares, rodents, reptiles, amphibians, fish and invertebrates";
-        final  String coyote3 = "Humans aside, cougars and gray wolves are the coyote's only " +
+        final String coyote3 = "Humans aside, cougars and gray wolves are the coyote's only " +
                 "serious enemies. Nevertheless, coyotes do sometimes mate with gray, eastern, " +
                 "or red wolves, producing hybrids colloquially called \"coywolves\"";
-        final  String coyote4 = "Coyotes are solitary creatures and mark their territory with " +
+        final String coyote4 = "Coyotes are solitary creatures and mark their territory with " +
                 "urine. During the winter, coyotes tend to become more social, though. During " +
                 "the cold months, they join forces, creating hunting packs to find food more " +
                 "easily.";
-        final  String coyote5 = "he basic social unit of a coyote pack is a family containing " +
+        final String coyote5 = "he basic social unit of a coyote pack is a family containing " +
                 "a reproductive female. However, unrelated coyotes may join forces for " +
                 "companionship, or to bring down prey too large to attack singly. Such " +
                 "\"nonfamily\" packs are only temporary, and may consist of bachelor males, " +
                 "nonreproductive females and subadult young. Families are formed in midwinter," +
                 " when females enter estrus.";
-        final  String coyote6 = "Both the male and female participate in taking care of the pups. " +
+        final String coyote6 = "Both the male and female participate in taking care of the pups. " +
                 "The male will bring food to the female and the pups and help protect them " +
                 "from predators.";
-        final  String coyote7 = "They can live alone, or in pairs. And when they are up against a " +
+        final String coyote7 = "They can live alone, or in pairs. And when they are up against a " +
                 "large prey, they can hunt in packs just like a pack of wolves";
-        final  String coyote8 = "By fall, the pups are old enough to hunt for themselves. " +
+        final String coyote8 = "By fall, the pups are old enough to hunt for themselves. " +
                 "Coyotes are usually ready to mate at 20 to 22 months old. In the wild, coyotes " +
                 "live around 14 years.";
-        final  String coyote9 = "It's also an particularly intelligent carnivore. American Indians" +
+        final String coyote9 = "It's also an particularly intelligent carnivore. American Indians" +
                 "believed it was endowed with supernatural senses. It is virtually " +
                 "indestructible, frequently coming back to life";
-        final  String coyote10 = "Coyotes are formidable in the field where they enjoy keen " +
+        final String coyote10 = "Coyotes are formidable in the field where they enjoy keen " +
                 "vision and a strong sense of smell. They can run up to 40 miles an hour. " +
                 "In the fall and winter, they form packs for more effective hunting.";
-        final  String coyote11 = "Unlike otters, coyotes can't catch fish. But through clever" +
+        final String coyote11 = "Unlike otters, coyotes can't catch fish. But through clever" +
                 "tactics, coyotes can steal the fish caught by otters by antagonizing them" +
                 "until they drop their catch.";
-        final  String coyote12 = "Coyotes pose danger to livestock such as sheep. Coyotes have " +
+        final String coyote12 = "Coyotes pose danger to livestock such as sheep. Coyotes have " +
                 "been hunted by men, and the death tolls can reach 500 000 per yer. Remarkably," +
                 "the coyote have still successfully survived, unlike wolf populations";
-        final  String coyote13 = "Pups instinctively become limp when picked up. They are carried " +
+        final String coyote13 = "Pups instinctively become limp when picked up. They are carried " +
                 "to the den when danger arrives, or when the pack needs to go home.";
         final String coyote14 = "Coyotes and badgers have been known to work as a team and " +
                 "hunt cooperatively when hunting small rodents. The badger is a much better and " +
@@ -129,7 +129,7 @@ public class Encyclopedia
 
         //Seagull strings, from Wikipedia;
         // http://www.softschools.com/facts/animals/seagull_facts/695/
-        final  String seagull1 = "Sea gulls like freshwater, but they’ll drink sea water. " +
+        final String seagull1 = "Sea gulls like freshwater, but they’ll drink sea water. " +
                 "Two glands near their eyes drip the salt in the water so they don’t get sick.";
         final String seagull2 = "Sea gulls make nests simply by hollowing out a soft spot " +
                 "in the sand. They try to choose an area near grass, rocks or logs for protection.";
@@ -199,7 +199,7 @@ public class Encyclopedia
                 "have bands, and mask around eyes is still missing.";
 
         //Squirrel strings, taken from livescience.com
-        final  String squirrel1 = "Squirrels are nimble, bushy-tailed rodents found all over " +
+        final String squirrel1 = "Squirrels are nimble, bushy-tailed rodents found all over " +
                 "the world. They belong to the Sciuridae family, which includes prairie dogs" +
                 ", chipmunks and marmots.";
         final String squirrel2 = "There are more than 200 species of squirrels, according to the " +
@@ -348,20 +348,35 @@ public class Encyclopedia
 
         //Coyotes
         List<String> coyotes = new ArrayList<>();
-        coyotes.add(coyote1); coyotes.add(coyote2); coyotes.add(coyote3); coyotes.add(coyote4);
-        coyotes.add(coyote5); coyotes.add(coyote6); coyotes.add(coyote7); coyotes.add(coyote8);
-        coyotes.add(coyote9); coyotes.add(coyote10); coyotes.add(coyote11); coyotes.add(coyote12);
-        coyotes.add(coyote13); coyotes.add(coyote14);
+        coyotes.add(coyote1);
+        coyotes.add(coyote2);
+        coyotes.add(coyote3);
+        coyotes.add(coyote4);
+        coyotes.add(coyote5);
+        coyotes.add(coyote6);
+        coyotes.add(coyote7);
+        coyotes.add(coyote8);
+        coyotes.add(coyote9);
+        coyotes.add(coyote10);
+        coyotes.add(coyote11);
+        coyotes.add(coyote12);
+        coyotes.add(coyote13);
+        coyotes.add(coyote14);
 
         ency.put("Coyote", coyotes);
 
         //Eastern Chipmunks
         List<String> easternChipmunks = new ArrayList<>();
-        easternChipmunks.add(easternChipmunk1); easternChipmunks.add(easternChipmunk2);
-        easternChipmunks.add(easternChipmunk3); easternChipmunks.add(easternChipmunk4);
-        easternChipmunks.add(easternChipmunk5); easternChipmunks.add(easternChipmunk6);
-        easternChipmunks.add(easternChipmunk7); easternChipmunks.add(easternChipmunk8);
-        easternChipmunks.add(easternChipmunk9); easternChipmunks.add(easternChipmunk10);
+        easternChipmunks.add(easternChipmunk1);
+        easternChipmunks.add(easternChipmunk2);
+        easternChipmunks.add(easternChipmunk3);
+        easternChipmunks.add(easternChipmunk4);
+        easternChipmunks.add(easternChipmunk5);
+        easternChipmunks.add(easternChipmunk6);
+        easternChipmunks.add(easternChipmunk7);
+        easternChipmunks.add(easternChipmunk8);
+        easternChipmunks.add(easternChipmunk9);
+        easternChipmunks.add(easternChipmunk10);
         easternChipmunks.add(easternChipmunk11);
 
         ency.put("Eastern Chipmunk", easternChipmunks);
@@ -428,11 +443,21 @@ public class Encyclopedia
                 "woodchuck could cuck wood. The woodchuck refers to the groundhog.";
 
         List<String> groundhogs = new ArrayList<>();
-        groundhogs.add(groundhog1); groundhogs.add(groundhog2); groundhogs.add(groundhog3);
-        groundhogs.add(groundhog4); groundhogs.add(groundhog5); groundhogs.add(groundhog6);
-        groundhogs.add(groundhog7); groundhogs.add(groundhog8); groundhogs.add(groundhog9);
-        groundhogs.add(groundhog10); groundhogs.add(groundhog11); groundhogs.add(groundhog12);
-        groundhogs.add(groundhog13); groundhogs.add(groundhog14); groundhogs.add(groundhog15);
+        groundhogs.add(groundhog1);
+        groundhogs.add(groundhog2);
+        groundhogs.add(groundhog3);
+        groundhogs.add(groundhog4);
+        groundhogs.add(groundhog5);
+        groundhogs.add(groundhog6);
+        groundhogs.add(groundhog7);
+        groundhogs.add(groundhog8);
+        groundhogs.add(groundhog9);
+        groundhogs.add(groundhog10);
+        groundhogs.add(groundhog11);
+        groundhogs.add(groundhog12);
+        groundhogs.add(groundhog13);
+        groundhogs.add(groundhog14);
+        groundhogs.add(groundhog15);
         ency.put("Groundhog", groundhogs);
 
         //American Minks, from Wikipedia; livescience.com
@@ -490,13 +515,20 @@ public class Encyclopedia
                 "Europe and are hunted for the purpose of wildlife management.";
 
         List<String> americanMinks = new ArrayList<>();
-        americanMinks.add(americanMink1); americanMinks.add(americanMink2);
-        americanMinks.add(americanMink3); americanMinks.add(americanMink4);
-        americanMinks.add(americanMink5); americanMinks.add(americanMink6);
-        americanMinks.add(americanMink7); americanMinks.add(americanMink8);
-        americanMinks.add(americanMink9); americanMinks.add(americanMink10);
-        americanMinks.add(americanMink11); americanMinks.add(americanMink12);
-        americanMinks.add(americanMink13); americanMinks.add(americanMink14);
+        americanMinks.add(americanMink1);
+        americanMinks.add(americanMink2);
+        americanMinks.add(americanMink3);
+        americanMinks.add(americanMink4);
+        americanMinks.add(americanMink5);
+        americanMinks.add(americanMink6);
+        americanMinks.add(americanMink7);
+        americanMinks.add(americanMink8);
+        americanMinks.add(americanMink9);
+        americanMinks.add(americanMink10);
+        americanMinks.add(americanMink11);
+        americanMinks.add(americanMink12);
+        americanMinks.add(americanMink13);
+        americanMinks.add(americanMink14);
         ency.put("Mink", americanMinks);
 
         // Opossum from Wikipedia for Virginia Opossums;
@@ -549,10 +581,18 @@ public class Encyclopedia
                 "of teeth found in any land mammal.";
 
         List<String> opossums = new ArrayList<>();
-        opossums.add(opossum1); opossums.add(opossum2); opossums.add(opossum3);
-        opossums.add(opossum4); opossums.add(opossum5); opossums.add(opossum6);
-        opossums.add(opossum7); opossums.add(opossum8); opossums.add(opossum9);
-        opossums.add(opossum10); opossums.add(opossum11); opossums.add(opossum12);
+        opossums.add(opossum1);
+        opossums.add(opossum2);
+        opossums.add(opossum3);
+        opossums.add(opossum4);
+        opossums.add(opossum5);
+        opossums.add(opossum6);
+        opossums.add(opossum7);
+        opossums.add(opossum8);
+        opossums.add(opossum9);
+        opossums.add(opossum10);
+        opossums.add(opossum11);
+        opossums.add(opossum12);
         opossums.add(opossum13);
         ency.put("Opossum", opossums);
 
@@ -623,11 +663,20 @@ public class Encyclopedia
                 "This technique is one of the first things cubs learn as they begin to hunt.";
 
         List<String> redFoxes = new ArrayList<>();
-        redFoxes.add(redFox1); redFoxes.add(redFox2); redFoxes.add(redFox3);
-        redFoxes.add(redFox4); redFoxes.add(redFox5); redFoxes.add(redFox6);
-        redFoxes.add(redFox7); redFoxes.add(redFox8); redFoxes.add(redFox9);
-        redFoxes.add(redFox10); redFoxes.add(redFox11); redFoxes.add(redFox12);
-        redFoxes.add(redFox13); redFoxes.add(redFox14);
+        redFoxes.add(redFox1);
+        redFoxes.add(redFox2);
+        redFoxes.add(redFox3);
+        redFoxes.add(redFox4);
+        redFoxes.add(redFox5);
+        redFoxes.add(redFox6);
+        redFoxes.add(redFox7);
+        redFoxes.add(redFox8);
+        redFoxes.add(redFox9);
+        redFoxes.add(redFox10);
+        redFoxes.add(redFox11);
+        redFoxes.add(redFox12);
+        redFoxes.add(redFox13);
+        redFoxes.add(redFox14);
 
         ency.put("Red Fox", redFoxes);
 
@@ -684,12 +733,442 @@ public class Encyclopedia
                 " some ten days to produce another supply.";
 
         List<String> skunks = new ArrayList<>();
-        skunks.add(skunk1); skunks.add(skunk2); skunks.add(skunk3); skunks.add(skunk4);
-        skunks.add(skunk5); skunks.add(skunk6); skunks.add(skunk7); skunks.add(skunk8);
-        skunks.add(skunk9); skunks.add(skunk10); skunks.add(skunk11); skunks.add(skunk12);
+        skunks.add(skunk1);
+        skunks.add(skunk2);
+        skunks.add(skunk3);
+        skunks.add(skunk4);
+        skunks.add(skunk5);
+        skunks.add(skunk6);
+        skunks.add(skunk7);
+        skunks.add(skunk8);
+        skunks.add(skunk9);
+        skunks.add(skunk10);
+        skunks.add(skunk11);
+        skunks.add(skunk12);
 
         ency.put("Skunk", skunks);
+
+        //Canadian Lynx, from Wikipedia; interesting-animal-facts.com
+        final String canadianLynx1 = "Canada Lynx, or Canadian Lynx have a dense silvery-brown coat" +
+                ", ruffed face and tufted " +
+                "ears, and it resembles the other species of the mid-sized Lynx genus." +
+                " It is slightly larger than the bobcat, with which it shares parts of its range," +
+                " and over twice the size of the domestic cat.";
+        final String canadianLynx2 = "This lynx is between 80 and 100 centimetres in " +
+                "head-and-body length, stands 48–56 centimetres (19–22 in) tall at the shoulder" +
+                " and weighs 5–18 kilograms (11–40 lb). At roughly half the size of the " +
+                "Eurasian lynx, physical proportions do not vary significantly across its " +
+                "range and are probably naturally selected to allow the animal to survive " +
+                "on smaller prey.";
+        final String canadianLynx3 = "The lynx can feel where it is biting the prey with its " +
+                "canines because they are heavily laced with nerves. The lynx also has four " +
+                "carnassial teeth that cut the meat into small pieces. In order for the lynx " +
+                "to use its carnassials, it must chew the meat with its head to its side.";
+        final String canadianLynx4 = "The claws are sharp and completely retractable (capable " +
+                "of being drawn within). The paws, broadened by the wide-spaced metatarsals," +
+                " can spread as wide as 10 centimetres (3.9 in) and allow the lynx to move " +
+                "fast and with ease on the snow.";
+        final String canadianLynx5 = "The Canada lynx tends to be nocturnal (active mainly" +
+                " at night), like the snowshoe hare, its major prey. Nevertheless, " +
+                "activity may be observed during daytime.";
+        final String canadianLynx6 = "The Canada lynx is an efficient climber, and will " +
+                "dodge predators by climbing high up on trees; however, they hunt only on land." +
+                " Canada lynxes are primarily solitary, with minimal social interaction except" +
+                " for the mother-offspring bond and the temporary association between males" +
+                " and females during the mating season.";
+        final String canadianLynx7 = "Exclusively carnivores, the Canadian lynx depends heavily" +
+                " on snowshoe hares for food. These hares comprise 35–97% of their diet;" +
+                " their occurrence in the diet varies by abundance of hares and the season. They" +
+                " consume one hare every one or two days.";
+        final String canadianLynx8 = "Canada lynxes hunt around twilight or at night, the time" +
+                " when snowshoe hares tend to be active.[18] Lynxes rely on their vision and" +
+                " sense of hearing to locate prey.[15] The lynx will roam or wait on certain " +
+                "trails where snowshoe hares gather, pounce on a hare and kill it by a bite " +
+                "on its head, throat or the nape of its neck.";
+        final String canadianLynx9 = "The female attracts a mate by leaving some of her urine " +
+                "where the male has marked his territory, and by repeated calling. Mating can" +
+                " occur six times in one hour. The female lynx will only mate with one male " +
+                "each season, but the male may mate with multiple females.";
+        final String canadianLynx10 = "Before birth, the female prepares a maternal den, usually" +
+                " in very thick brush, and typically inside thickets of shrubs or trees or " +
+                "woody debris. The dens are generally situated mid-slope and face south or" +
+                " southwest";
+        final String canadianLynx11 = "Litters contain from one to four kittens, and tend to be " +
+                "much larger when prey is abundant. This suggests a greater degree of " +
+                "reproductive flexibility than in other cats, and females often do not mate " +
+                "at all when prey is scarce. When kittens are born in lean years, however," +
+                " infant mortality may be as high as 95%";
+        final String canadianLynx12 = "Kittens leave the den after about five weeks, and begin" +
+                " hunting at between seven and nine months of age. They leave the mother at " +
+                "around ten months, as the next breeding season begins, but do not reach the" +
+                " full adult size until around two years old.";
+        final String canadianLynx13 = "Canada lynx have been reported to live for up to fourteen" +
+                " years in captivity although the lifespan is likely much shorter in the wild.";
+        final String canadianLynx14 = "The Canada lynx is found in northern and mixed forests " +
+                "across Canada and Alaska. It is, however, absent in the relatively treeless " +
+                "regions of the Great Plains and the northern coasts, which are outside the " +
+                "natural range of the snowshoe hare. Due to human activity, the Canada lynx " +
+                "is no longer found on Prince Edward Island or on the mainland of Nova Scotia";
+        final String canadianLynx15 = "The Canada Lynx will often cover their prey with a layer" +
+                " of snow to be eaten at a later time.";
+        final String canadianLynx16 = "After a kill the Lynx has to be cautious of animals, " +
+                "such as wolverines, looking to steel the prey. The wolverines aggressive " +
+                "nature will force the Canada Lynx to leave its prey.";
+
+        List<String> canadianLynxes = Arrays.asList(canadianLynx1, canadianLynx2, canadianLynx3,
+                canadianLynx4, canadianLynx5, canadianLynx6, canadianLynx7, canadianLynx8, canadianLynx9
+                , canadianLynx10, canadianLynx11, canadianLynx12, canadianLynx13, canadianLynx14, canadianLynx15,
+                canadianLynx16);
+        ency.put("Canada Lynx", canadianLynxes);
+
+        // White Tailed Deer, from Wikipedia
+        // http://naturemappingfoundation.org/natmap/facts/white-tailed_deer_k6.html
+        final String whiteTailedDeer1 = "The white-tailed deer (Odocoileus virginianus), also " +
+                "known as the whitetail, is a medium-sized deer native to the United States, " +
+                "Canada, Mexico, Central America, and South America as far south as Peru and" +
+                " Bolivia.";
+        final String whiteTailedDeer2 = "Some taxonomists have attempted to separate " +
+                "white-tailed deer into a host of subspecies, based largely in morphological" +
+                " differences.30-40 subspecies have been found.";
+        final String whiteTailedDeer3 = "The deer's coat is a reddish-brown in the spring and" +
+                " summer and turns to a grey-brown throughout the fall and winter. The deer" +
+                " can be recognized by the characteristic white underside to its tail. It " +
+                "raises its tail when it is alarmed to warn the predator that it has been" +
+                " detected.";
+        final String whiteTailedDeer4 = "The white-tailed deer is highly variable in size," +
+                " generally following Bergmann's rule that the average size is larger" +
+                " farther away from the Equator. North American male deer (also known as" +
+                " a buck) usually weigh 45 kilograms (100 lb), but in rare cases, bucks in" +
+                " excess of 125 kilograms (275 lb) have been recorded.";
+        final String whiteTailedDeer5 = "Deer have dichromatic (two-color) vision with blue" +
+                " and yellow primaries; humans normally have trichromatic vision. Thus," +
+                " deer poorly distinguish the oranges and reds that stand out so well to " +
+                "humans. This makes it very convenient to use deer-hunter orange as a safety" +
+                " color on caps and clothing to avoid accidental shootings during hunting seasons.";
+        final String whiteTailedDeer6 = "Males regrow their antlers every year. About one in " +
+                "10,000 females also have antlers, although this is usually associated" +
+                " with freemartinism. Bucks without branching antlers are often termed" +
+                " \"spikehorn\", \"spiked bucks\", \"spike bucks\", or simply \"spikes/spikers\"";
+        final String whiteTailedDeer7 = "The number of points, the length, or thickness of " +
+                "the antlers is a general indication of age, but cannot be relied upon for" +
+                " positive aging. A better indication of age is the length of the snout and " +
+                "the color of the coat, with older deer tending to have longer snouts and " +
+                "grayer coats.";
+        final String whiteTailedDeer8 = "Although most often thought of as forest animals " +
+                "depending on relatively small openings and edges, white-tailed deer can " +
+                "equally adapt themselves to life in more open prairie, savanna woodlands," +
+                " and sage communities as in the Southwestern United States and northern Mexico.";
+        final String whiteTailedDeer9 = "White-tailed deer eat large amounts of food, " +
+                "commonly eating legumes and foraging on other plants, including shoots," +
+                " leaves, cacti (in deserts), prairie forbs,[25] and grasses. They also" +
+                " eat acorns, fruit, and corn. Their special stomachs allow them to eat" +
+                " some things humans cannot, such as mushrooms and poison ivy.";
+        final String whiteTailedDeer10 = "Though almost entirely herbivorous, white-tailed " +
+                "deer have been known to opportunistically feed on nesting songbirds," +
+                " field mice, and birds trapped in mist nets, if the need arises.";
+        final String whiteTailedDeer11 = "Several natural predators of white-tailed deer occur." +
+                " Wolves, cougars, American alligators, jaguars (in the tropics), and humans" +
+                " are the most effective natural predators of white-tailed deer. These" +
+                " predators frequently pick out easily caught young or infirm deer (which " +
+                "is believed to improve the genetic stock of a population), but can and do" +
+                " take healthy adults of any size.";
+        final String whiteTailedDeer12 = "White-tailed deer typically respond to the presence " +
+                "of potential predators by breathing very heavily (also called blowing) and " +
+                "fleeing. When they blow, the sound alerts other deer in the area. As they " +
+                "run, the flash of their white tails warns other deer. This especially " +
+                "serves to warn fawns when their mother is alarmed.";
+        final String whiteTailedDeer13 = "Males compete for the opportunity of breeding females." +
+                " Sparring among males determines a dominance hierarchy. Bucks attempt to " +
+                "copulate with as many females as possible, losing physical condition, since" +
+                " they rarely eat or rest during the rut.";
+        final String whiteTailedDeer14 = "Females give birth to one to three spotted young, " +
+                "known as fawns, in mid- to late spring, generally in May or June. Fawns " +
+                "lose their spots during the first summer and weigh from 44 to 77 lb (20 to " +
+                "35 kg) by the first winter.";
+        final String whiteTailedDeer15 = "For the first four weeks, fawns are hidden in " +
+                "vegetation by their mothers, who nurse them four to five times a day. " +
+                "This strategy keeps scent levels low to avoid predators. After about " +
+                "a month, the fawns are then able to follow their mothers on foraging trip";
+        final String whiteTailedDeer16 = "Sign-post marking (scrapes and rubs) is a very " +
+                "obvious way white-tailed deer communicate.[68] Although bucks do" +
+                " most of the marking, does visit these locations often. To make a" +
+                " rub, a buck uses his antlers to strip the bark off small-diameter " +
+                "trees, helping to mark his territory and polish his antlers.";
+        final String whiteTailedDeer17 = "White-tailed deer are generally solitary, especially" +
+                " in summer. The basic social unit is a female and her fawns, although" +
+                " does have been observed to graze together in large herds.";
+        final String whiteTailedDeer18 = "Most white-tailed deer live about 2 to 3 years." +
+                " The maximum life span in the wild is 20 years, but few deer live past" +
+                " 10 years old.";
+
+        List<String> whiteTailedDeers = Arrays.asList(whiteTailedDeer1, whiteTailedDeer2,
+                whiteTailedDeer3, whiteTailedDeer4, whiteTailedDeer5, whiteTailedDeer6,
+                whiteTailedDeer7, whiteTailedDeer8, whiteTailedDeer9, whiteTailedDeer10,
+                whiteTailedDeer11, whiteTailedDeer12, whiteTailedDeer13, whiteTailedDeer14,
+                whiteTailedDeer15, whiteTailedDeer16, whiteTailedDeer17, whiteTailedDeer18);
+        ency.put("White-tailed Deer", whiteTailedDeers);
+
+        //Eastern Cottontail, from Wikipedia;
+        // http://www.softschools.com/facts/animals/eastern_cottontail_facts/1474/
+        //National Geographic
+        final String easternCottentail1 = "The eastern cottontail (Sylvilagus floridanus) " +
+                "is a New World cottontail rabbit, a member of the family Leporidae. " +
+                "It is one of the most common rabbit species in North America.";
+        final String easternCottentail2 = "The eastern cottontail can be found in meadows " +
+                "and shrubby areas in the eastern and south-central United States, southern" +
+                " Canada, eastern Mexico, Central America and northernmost South America. " +
+                "It is abundant in Midwest North America, and has been found in New Mexico" +
+                " and Arizona.";
+        final String easternCottentail3 = "Optimal eastern cottontail habitat includes" +
+                " open grassy areas, clearings, and old fields supporting abundant green" +
+                " grasses and herbs, with shrubs in the area or edges for cover.";
+        final String easternCottentail4 = "The eastern cottontail home range is roughly " +
+                "circular in uniform habitats. Eastern cottontails typically inhabit one home" +
+                " range throughout their lifetime, but home range shifts in response to " +
+                "vegetation changes and weather are common. Uusually around 5 to 8 acres";
+        final String easternCottentail5 = " Eastern cottontails do not dig their own dens " +
+                "(other than nest holes) but use burrows dug by other species such as woodchucks.";
+        final String easternCottentail6 = "The eastern cottontail is chunky, red-brown or" +
+                " gray-brown in appearance, with large hind feet, long ears, and a short," +
+                " fluffy white tail. Its underside fur is white. There is a rusty patch on" +
+                " the tail. Its appearance differs from that of a hare in that it has a " +
+                "brownish-gray coloring around the head and neck";
+        final String easternCottentail7 = "The eastern cottontail is a very territorial animal." +
+                " When chased, it runs in a zigzag pattern, running up to 18 mph (29 km/h)." +
+                " The cottontail prefers an area where it can hide quickly but be out in the open.";
+        final String easternCottentail8 = "Eastern cottontail young are born with a very " +
+                "fine coat of hair and are blind. Their eyes begin to open by four to seven" +
+                " days. Young begin to move out of the nest for short trips by 12 to 16 days" +
+                " and are completely weaned and independent by four to five weeks. Litters" +
+                " disperse at about seven weeks. Females do not stay in the nest with the " +
+                "young but return to the opening of the nest to nurse, usually twice a day.";
+        final String easternCottentail9 = "Males will mate with more than one female. " +
+                "Female rabbits can have one to seven litters of one to twelve young, " +
+                "called kits, in a year; however, they average three to four litters per" +
+                " year, and the average number of kits is five";
+        final String easternCottentail10 = "Food items include bark, twigs, leaves, fruit, " +
+                "buds, flowers, grass seeds, sedge fruits, and rush seeds. There is a " +
+                "preference for small material: branches, twigs, and stems up to 0.25 in (0.64 cm)";
+        final String easternCottentail11 = "The eastern cottontail has to contend with many" +
+                " predators, both natural and introduced. Due to their often large populations" +
+                " in Eastern North America, they form a major component of several predators'" +
+                " diets. Major predators of eastern cottontail include domestic cats and" +
+                " dogs, foxes, coyote, bobcat, weasels, raccoon), mink, great horned owl" +
+                ", barred owl, hawks, corvids, and snakes.";
+        final String easternCottentail12 = "Eastern cottontail produces two types of feces." +
+                " First type is soft and green due to high content of undigested plants. " +
+                "Eastern cottontail swallows it again to digest it more thoroughly and to " +
+                "extract remaining nutrients.";
+        final String easternCottentail13 = "Mother visits the nest each day to nurse the babies." +
+                " Young eastern cottontails develop quickly. They begin independent life at" +
+                " the age or 4 to 5 weeks and start to breed at the age of 2 to 3 months.";
+        final String easternCottentail14 = "Cottontails are plentiful and can be problematic " +
+                "for farmers; they are also a popular game animal.";
+        final String easternCottentail15 = "It has been estimated that, with no mortality," +
+                " one pair of eastern cottontails could potentially produce 350,000" +
+                " descendants in just 5 years";
+
+        List<String> easternCottontails = Arrays.asList(easternCottentail1, easternCottentail2,
+                easternCottentail3, easternCottentail4, easternCottentail5, easternCottentail6,
+                easternCottentail7, easternCottentail8, easternCottentail9, easternCottentail10,
+                easternCottentail11, easternCottentail12, easternCottentail13, easternCottentail14,
+                easternCottentail15);
+        ency.put("Eastern Cottontail", easternCottontails);
+
+        //Blue jay, from Wikipedia, canadiangeographic.ca
+        final String blueJay1 = "It is resident through most of eastern and central United States" +
+                ", although western populations may be migratory. Resident populations are also" +
+                " found in Newfoundland, Canada, while breeding populations can be found in" +
+                " southern Canada";
+        final String blueJay2 = "The bird's name derives from its noisy, garrulous nature." +
+                " It is sometimes called a \"jaybird\".";
+        final String blueJay3 = "As with most other blue-hued birds, the blue jay's colouration" +
+                " is not derived from pigments but is the result of light interference due to" +
+                " the internal structure of the feathers; if a blue feather is crushed, " +
+                "the blue disappears because the structure is destroyed. This is referred to as" +
+                " structural colouration.";
+        final String blueJay4 = "Recently, the range of the blue jay has extended northwestwards" +
+                " so that it is now a rare but regularly seen winter visitor along the northern" +
+                " US and southern Canadian Pacific Coast.";
+        final String blueJay5 = "Thousands of blue jays have been observed to migrate in " +
+                "flocks along the Great Lakes and Atlantic coasts. It migrates during the " +
+                "daytime, in loose flocks of 5 to 250 birds. Much about their migratory " +
+                "behavior remains a mystery.";
+        final String blueJay6 = "To date, no one has concretely worked out why they migrate " +
+                "when they do. Likely, it is related to weather conditions and how abundant" +
+                " the winter food sources are, which can determine whether other northern" +
+                " birds will move south.";
+        final String blueJay7 = "The blue jay occupies a variety of habitats within its large" +
+                " range, from the pine woods of Florida to the spruce-fir forests of northern" +
+                " Ontario. It is less abundant in denser forests, preferring mixed woodlands " +
+                "with oaks and beeches.";
+        final String blueJay8 = "The blue jay can be beneficial to other bird species, as it" +
+                " may chase predatory birds, such as hawks and owls, and will scream if it sees" +
+                " a predator within its territory. It has also been known to sound an alarm call " +
+                "when hawks or other dangers are near, and smaller birds often recognize this " +
+                "call and hide themselves away accordingly.";
+        final String blueJay9 = "It may occasionally impersonate the calls of raptors, especially" +
+                " those of the red-tailed and red-shouldered hawks, possibly to test if a" +
+                " hawk is in the vicinity, though also possibly to scare off other birds that may" +
+                " compete for food sources.";
+        final String blueJay10 = "Jays are very territorial birds, and they will chase others " +
+                "from a feeder for an easier meal.";
+        final String blueJay11 = "Blue jays, like other corvids, are highly curious and are " +
+                "considered intelligent birds. Young individuals playfully snatch brightly " +
+                "coloured or reflective objects, such as bottle caps or pieces of aluminum foil," +
+                " and carry them around until they lose interest.";
+        final String blueJay12 = " Its food is sought both on the ground and in trees and " +
+                "includes virtually all known types of plant and animal sources, such as acorns" +
+                " and beech mast, weed seeds, grain, fruits and other berries, peanuts, bread," +
+                " meat, small invertebrates of many types, scraps in town parks, bird-table" +
+                " food and rarely eggs and nestlings.";
+        final String blueJay13 = "Blue jays typically form monogamous pair bonds for life. " +
+                "Both sexes build the nest and rear the young, though only the female broods " +
+                "them. The male feeds the female while she is brooding the eggs. There are" +
+                " usually between 3 and 6 (averaging 4 or 5) eggs laid and incubated over " +
+                "16–18 days. The young fledge usually between 17–21 days after hatching.";
+        final String blueJay14 = "Blue jays have been recorded to live for more than 26 years" +
+                " in captivity and one wild jay was found to have been around 17 and a half" +
+                " years old. The average lifespan is 7 years.";
+        final String blueJay15 = "The blue jay is the provincial bird of the province of Prince " +
+                "Edward Island in Canada.";
+        final String blueJay16 = "Adult Blue Jays are known for their unusual moulting behaviour." +
+                " The birds undergo a complete change of plumage between June and July, and " +
+                "are avid ‘anters’ during this period. ‘Anting’ is the process of using ants or" +
+                " other materials to preen or clean feathers. Birds have been known to use odd" +
+                " materials, including lit cigarettes, to ‘ant.’";
+
+        List<String> blueJays = Arrays.asList(blueJay1, blueJay2, blueJay3, blueJay4, blueJay5,
+                blueJay6, blueJay7, blueJay8, blueJay9, blueJay10, blueJay11, blueJay12, blueJay13,
+                blueJay14, blueJay15, blueJay16);
+        ency.put("Blue Jay", blueJays);
+
+        //North American Porcupine, from wikipedia
+        final String northAmericanPorcupine1 = "The beaver is the only rodent in North America " +
+                "that is larger than the North American porcupine.";
+        final String northAmericanPorcupine2 = "The word \"porcupine\" comes from the middle " +
+                "or old French word porcespin, which means quill pig. Its roots derive from the" +
+                " Latin words porcus or pig and spina meaning thorns.";
+        final String northAmericanPorcupine3 = "Porcupines are usually dark brown or black in " +
+                "color, with white highlights. They have a stocky body, a small face, " +
+                "short legs, and a short, thick tail.";
+        final String northAmericanPorcupine4 = "The porcupine is the only native North American" +
+                " mammal with antibiotics in its skin. Those antibiotics prevent infection when " +
+                "a porcupine falls out of a tree and is stuck with its own quills upon hitting" +
+                " the ground. Porcupines fall out of trees fairly often because they are highly" +
+                " tempted by the tender buds and twigs at the ends of the branches.";
+        final String northAmericanPorcupine5 = "The porcupine, wolverine, and the skunk are " +
+                "the only North American mammals that have black and white colors because they" +
+                " are the only mammals that benefit from letting other animals know where and" +
+                " what they are in the dark of the night.";
+        final String northAmericanPorcupine6 = "An adult porcupine has about 30,000 quills that" +
+                " cover all of its body except its underbelly, face, and feet. Quills are " +
+                "modified hairs formed into sharp, barbed, hollow spines. They are used " +
+                "primarily for defense, but also serve to insulate their bodies during winter.";
+        final String northAmericanPorcupine7 = "The barbs at the tip become lodged in the flesh" +
+                " of an attacker and are difficult and painful to remove. The quills are " +
+                "normally flattened against the body and in this position are less" +
+                " easily dislodged.";
+        final String northAmericanPorcupine8 = "North American porcupines range from Canada," +
+                " Alaska, and into northern Mexico. They are commonly found in coniferous " +
+                "and mixed forested areas, but have adapted to harsh environments such as " +
+                "shrublands, tundra, and deserts. They make their dens in hollow trees or in" +
+                " rocky areas.";
+        final String northAmericanPorcupine9 = "During the summer, they eat twigs, roots, " +
+                "stems, berries, and other vegetation. In the winter, they mainly eat conifer" +
+                " needles and tree bark. Porcupines are selective in their eating; for example" +
+                " out of every 1,000 trees in the Catskill Mountains, porcupines will only eat" +
+                " from 1-2 linden trees and one bigtoothed aspen.";
+        final String northAmericanPorcupine10 = " It has a strong warning odor which it can " +
+                "increase when agitated. When threatened, an adult porcupine can bristle its" +
+                " quills, displaying a white stripe down its back, and use its teeth to make" +
+                " a warning, clacking sound.";
+        final String northAmericanPorcupine11 = "Fishers have two advantages that make them " +
+                "capable hunters of the porcupine. First, they are agile tree climbers. " +
+                "If a fisher locates a porcupine, it cannot hide by fleeing into a tree " +
+                "because the fisher can pursue it and force it down to the ground";
+        final String northAmericanPorcupine12 = "As it circles the porcupine, every chance it " +
+                "gets, it bites the face. After repeated attacks, the porcupine eventually " +
+                "weakens, allowing the fisher to bite the porcupine's underbelly, thus killing" +
+                " it. The fisher will then consume the porcupine through the chest and abdomen," +
+                " avoiding the quills.";
+        final String northAmericanPorcupine13 = "Female porcupines give birth to a single young" +
+                " and provide all the maternal care. Mother porcupines do not defend their young.";
+        final String northAmericanPorcupine14 = "North American porcupines have a relatively " +
+                "long life expectancy. Some individuals have been found to live up " +
+                "to 30 years of age.";
+
+        List<String> northAmericanPorcupines = Arrays.asList(northAmericanPorcupine1,
+                northAmericanPorcupine2, northAmericanPorcupine3, northAmericanPorcupine4,
+                northAmericanPorcupine5, northAmericanPorcupine6, northAmericanPorcupine7,
+                northAmericanPorcupine8, northAmericanPorcupine9, northAmericanPorcupine10,
+                northAmericanPorcupine11, northAmericanPorcupine12, northAmericanPorcupine13,
+                northAmericanPorcupine14);
+
+        ency.put("North American Porcupine", northAmericanPorcupines);
+
+        // Canada Goose, from wikipedia
+        final String canadaGoose1 = "The Canada goose (Branta canadensis) is a large wild " +
+                "goose species with a black head and neck, white patches on the face, " +
+                "and a brown body.";
+        final String canadaGoose2 = "Extremely successful at living in human-altered areas," +
+                " Canada geese have proven able to establish breeding colonies in urban and " +
+                "cultivated areas, which provide food and few natural predators, and are well " +
+                "known as a common park species. ";
+        final String canadaGoose3 = "In recent years, Canada goose populations in some " +
+                "areas have grown substantially, so much so that many consider them pests " +
+                "for their droppings, bacteria in their droppings, noise, and " +
+                "confrontational behavior.";
+        final String canadaGoose4 = "Like most geese, the Canada goose is naturally migratory " +
+                "with the wintering range being most of the United States. The calls overhead" +
+                " from large groups of Canada geese flying in V-shaped formation signal the" +
+                " transitions into spring and autumn.";
+        final String canadaGoose5 = "Males exhibit agonistic behaviour both on and off breeding" +
+                " and nesting grounds. This behavior rarely involves interspecific killing.";
+        final String canadaGoose6 = "Canada geese are primarily herbivores, although they " +
+                "sometimes eat small insects and fish.[26] Their diet includes green vegetation" +
+                " and grains. The Canada goose eats a variety of grasses when on land. It " +
+                "feeds by grasping a blade of grass with the bill, then tearing it with a " +
+                "jerk of the head.";
+        final String canadaGoose7 = "During the second year of their lives, Canada geese " +
+                "find a mate. They are monogamous, and most couples stay together all of " +
+                "their lives. If one dies, the other may find a new mate.";
+        final String canadaGoose8 = "The female lays from two to nine eggs with an average of " +
+                "five, and both parents protect the nest while the eggs incubate, but the " +
+                "female spends more time at the nest than the male.";
+        final String canadaGoose9 = "Its nest is usually located in an elevated area near " +
+                "water such as streams, lakes, ponds, and sometimes on a beaver lodge. Its" +
+                " eggs are laid in a shallow depression lined with plant material and down.";
+        final String canadaGoose10 = "The incubation period, in which the female incubates " +
+                "while the male remains nearby, lasts for 24–28 days after laying. As the" +
+                " annual summer molt also takes place during the breeding season, the adults" +
+                " lose their flight feathers for 20–40 days, regaining flight about the same" +
+                " time as their goslings start to fly.";
+        final String canadaGoose11 = "While protecting their goslings, parents often violently" +
+                " chase away nearby creatures, from small blackbirds to lone humans who approach" +
+                ", after warning them by giving off a hissing sound and then attack with bites" +
+                " and slaps of the wings if the threat does not retreat or has seized a gosling.";
+        final String canadaGoose12 = "Canada geese fly in a distinctive V-shaped flight " +
+                "formation, with an altitude of 1 km (3,000 feet) for migration flight. " +
+                "The maximum flight ceiling of Canada geese is unknown, but they have " +
+                "been reported at 9 km.";
+        final String canadaGoose13 = "The lifespan in the wild of geese that survive to " +
+                "adulthood ranges from 10 to 24 years.";
+        final String canadaGoose14 = "Once they reach adulthood, due to their large size and" +
+                " often aggressive behavior, Canada geese are rarely preyed on, although" +
+                " prior injury may make them more vulnerable to natural predators.";
+        final String canadaGoose15 = "The oldest known wild Canada Goose was a female, and" +
+                " at least 33 years, 3 months old when she was shot in Ontario in 2001. " +
+                "She had been banded in Ohio in 1969.";
+
+        List<String> canadaGeese = Arrays.asList(canadaGoose1, canadaGoose2, canadaGoose3,
+                canadaGoose4, canadaGoose5, canadaGoose6, canadaGoose7, canadaGoose8, canadaGoose9,
+                canadaGoose10, canadaGoose11, canadaGoose12, canadaGoose13, canadaGoose14,
+                canadaGoose15);
+        ency.put("Canada Goose", canadaGeese);
     }
+
+
 
     public boolean hasAnimal(String animal)
     {

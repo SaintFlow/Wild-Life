@@ -7,66 +7,83 @@
     android:fitsSystemWindows="true"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="commonflow.wildlife.MainActivity">
+    tools:context="commonflow.wildlife.MainActivity"
+    android:gravity="center_vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Wild Life"
+        android:id="@+id/wildLifeTitle"
+        android:layout_gravity="center_horizontal"
+        android:textColorHighlight="@color/colorPrimary"
+        android:textSize="@dimen/abc_text_size_headline_material"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1.0"
-        android:layout_margin= "@dimen/activity_vertical_margin"
+        android:layout_height="wrap_content"
         style="?android:attr/button"
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/animal_list_button"
-            android:layout_width="match_parent"
+            android:layout_width="20dp"
             style="?android:attr/button"
-            android:layout_height="match_parent"
+            android:layout_height="100dp"
             android:background="@color/lightBlue1"
-            android:layout_margin= "@dimen/activity_vertical_margin"
+            android:layout_margin= "@dimen/text_margin"
             android:layout_weight="1.0"
-            android:text="@string/full_animal_list" />
+            android:text="@string/full_animal_list"
+            android:clickable="true"
+            android:textColor="@color/abc_primary_text_material_light" />
 
         <Button
             android:id="@+id/animal_classes_button"
             style="?android:attr/button"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="20dp"
+            android:layout_height="100dp"
             android:background="@color/lightBlue2"
             android:layout_margin="@dimen/text_margin"
             android:layout_weight="1.0"
-            android:text="@string/animal_classes" />
+            android:text="@string/animal_classes"
+            android:clickable="true"
+            android:textColor="@color/abc_primary_text_disable_only_material_light" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1.0"
+        android:layout_height="wrap_content"
         style="?android:attr/button"
-        android:layout_margin= "@dimen/activity_vertical_margin"
-        android:orientation="horizontal" >
+        android:orientation="horizontal"
+        android:gravity="center_vertical|fill_vertical">
 
         <Button
             android:id="@+id/help_button"
             style="?android:attr/button"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="20dp"
+            android:layout_height="100dp"
             android:background="@android:color/holo_blue_light"
-            android:layout_margin="@dimen/text_margin"
             android:layout_weight="1.0"
             android:text="@string/trouble_identifying_an_animal"
-            android:textColor="#FFFFFF"/>
+            android:textColor="@color/abc_primary_text_disable_only_material_light"
+            android:layout_margin="@dimen/text_margin"
+            android:clickable="true" />
 
         <Button
             android:id="@+id/options_button"
             style="?android:attr/button"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="20dp"
+            android:layout_height="100dp"
             android:background="@color/lightBlue3"
             android:layout_margin="@dimen/text_margin"
             android:layout_weight="1.0"
-            android:text="@string/options" />
+            android:text="@string/options"
+            android:clickable="true"
+            android:textColor="@color/abc_primary_text_disable_only_material_light" />
 
     </LinearLayout>
 

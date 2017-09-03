@@ -16,6 +16,7 @@ public class Animal
 
 
     private String animalClass;
+    private String species;
     public String scientificName = "";
     public String length = "";
     public String weight = "";
@@ -44,6 +45,14 @@ public class Animal
     public void setAnimalClass(String a)
     {
         animalClass = a;
+    }
+
+    public String getSpecies() {
+        return species;
+    }
+
+    public void setSpecies(String species) {
+        this.species = species;
     }
 
     @Override
