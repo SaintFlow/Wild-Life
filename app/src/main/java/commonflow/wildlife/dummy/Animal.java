@@ -1,6 +1,5 @@
 package commonflow.wildlife.dummy;
 
-import java.util.List;
 
 /**
  * Created by Randy on 7/1/2017.
@@ -17,16 +16,12 @@ public class Animal
 
     private String animalClass;
     private String species;
-    public String scientificName = "";
-    public String length = "";
-    public String weight = "";
-    public List<String> otherNames;
 
     /**
      * Constructor for the Animal class
      * @param id The unique id number that matches with the animal.
-     * @param content
-     * @param details
+     * @param content Extra information of the animal
+     * @param details Detail information of the animal
      * @param image Refers to the image file found in the project drawable folder. Each animal
      *              must be referenced with an existing file.
      */
@@ -36,6 +31,7 @@ public class Animal
         this.details = details;
         this.image = image;
         animalClass = "";
+        setSpecies("");
     }
 
     public String getAnimalClass() {
@@ -45,10 +41,6 @@ public class Animal
     public void setAnimalClass(String a)
     {
         animalClass = a;
-    }
-
-    public String getSpecies() {
-        return species;
     }
 
     public void setSpecies(String species) {

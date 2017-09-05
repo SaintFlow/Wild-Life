@@ -1,6 +1,7 @@
 package commonflow.wildlife.dummy;
 
 /**
+ * Animal Picture class, containing attributes for each Animal picture.
  * Created by Randy on 5/23/2017.
  */
 public class AnimalPicture
@@ -18,11 +19,11 @@ public class AnimalPicture
         animal_picture_url = "";
     }
 
-    public AnimalPicture(String name, String url)
+    /*public AnimalPicture(String name, String url)
     {
         animal_name = name;
         animal_picture_url = url;
-    }
+    }*/
 
     public String getAnimal_name() {
         return animal_name;
@@ -51,7 +52,10 @@ public class AnimalPicture
     //Equal if their URLs are equal
     @Override
     public boolean equals(Object obj) {
-        AnimalPicture newObj = (AnimalPicture) obj;
-        return this.getAnimal_picture_url().equals(newObj.getAnimal_picture_url());
+        if (obj.getClass().equals(AnimalPicture.class)) {
+            AnimalPicture newObj = (AnimalPicture) obj;
+            return this.getAnimal_picture_url().equals(newObj.getAnimal_picture_url());
+        }
+        else return false;
     }
 }

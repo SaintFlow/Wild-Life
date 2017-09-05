@@ -20,32 +20,30 @@ public class DummyContent {
     /**
      * An array of sample (dummy) items.
      */
-    public static final List<Animal> ITEMS = new ArrayList<Animal>();
-    public static final List<Animal> MAMMALS = new ArrayList<Animal>();
-    public static final List<Animal> BIRDS = new ArrayList<Animal>();
-    public static final List<Animal> FISH = new ArrayList<Animal>();
-    public static final List<Animal> REPTILES = new ArrayList<Animal>();
-    public static final List<Animal> AMPHIBIANS = new ArrayList<Animal>();
-    public static final List<Animal> ANTHROPODS = new ArrayList<Animal>();
+    public static final List<Animal> ITEMS = new ArrayList<>();
+    public static final List<Animal> MAMMALS = new ArrayList<>();
+    public static final List<Animal> BIRDS = new ArrayList<>();
+    public static final List<Animal> FISH = new ArrayList<>();
+    public static final List<Animal> REPTILES = new ArrayList<>();
+    public static final List<Animal> AMPHIBIANS = new ArrayList<>();
+    public static final List<Animal> ANTHROPODS = new ArrayList<>();
 
     /**
      * A map of sample (dummy) items, by ID.
      */
     public static final Map<String, Animal> ITEM_MAP = new HashMap<>();
 
-    public static final Map<String, Animal> MAMMALS_MAP = new HashMap<String, Animal>();
-    public static final Map<String, Animal> BIRDS_MAP = new HashMap<String, Animal>();
-    public static final Map<String, Animal> FISH_MAP = new HashMap<String, Animal>();
-    public static final Map<String, Animal> REPTILES_MAP = new HashMap<String, Animal>();
-    public static final Map<String, Animal> AMPHIBIANS_MAP = new HashMap<String, Animal>();
-    public static final Map<String, Animal> ANTHROPODS_MAP = new HashMap<String, Animal>();
+    public static final Map<String, Animal> MAMMALS_MAP = new HashMap<>();
+    public static final Map<String, Animal> BIRDS_MAP = new HashMap<>();
+    public static final Map<String, Animal> FISH_MAP = new HashMap<>();
+    public static final Map<String, Animal> REPTILES_MAP = new HashMap<>();
+    public static final Map<String, Animal> AMPHIBIANS_MAP = new HashMap<>();
+    public static final Map<String, Animal> ANTHROPODS_MAP = new HashMap<>();
 
     public static final SparseArray<Map<String, Animal>> animalMapClasses =
             new SparseArray<>();
     public static final SparseArray<List<Animal>> animalClasses =
             new SparseArray<>();
-
-    private static final int COUNT = 25;
 
     static {
 
@@ -54,30 +52,42 @@ public class DummyContent {
 
         Animal beaver = new Animal("1", "Beaver", "test1", R.drawable.beaver);
         beaver.setAnimalClass("mammal");
+
         Animal coyote = new Animal("2", "Coyote", "test1", R.drawable.coyote);
         coyote.setAnimalClass("mammal");
+
         Animal easternChipmunk = new Animal("3", "Eastern Chipmunk", "test3",
                 R.drawable.eastern_chipmunk);
         easternChipmunk.setAnimalClass("mammal");
+
         Animal groundhog = new Animal("4", "Groundhog", "test3", R.drawable.groundhog);
         groundhog.setAnimalClass("mammal");
+
         Animal mink = new Animal("5", "Mink", "test1", R.drawable.mink);
         mink.setAnimalClass("mammal");
+
         Animal opossum = new Animal("6", "Opossum", "test1", R.drawable.opossum);
         opossum.setAnimalClass("mammal");
+
         Animal raccoon = new Animal("7", "Raccoon", "test1", R.drawable.raccoon);
         raccoon.setAnimalClass("mammal");
+
         Animal redFox = new Animal("8", "Red Fox", "test1", R.drawable.red_fox);
         redFox.setAnimalClass("mammal");
+
         Animal seagull = new Animal("9", "Seagull", "test3", R.drawable.seagull);
         seagull.setAnimalClass("bird");
+
         Animal skunk = new Animal("10", "Skunk", "test3", R.drawable.skunk);
         skunk.setAnimalClass("mammal");
+
         Animal squirrel = new Animal("11", "Squirrel", "test2", R.drawable.squirrel);
         squirrel.setAnimalClass("mammal");
+
         Animal canadianLynx = new Animal("12", "Canada Lynx", "test3", R.drawable.canadian_lynx);
         canadianLynx.setSpecies("Lynx canadensis");
         canadianLynx.setAnimalClass("mammal");
+
         Animal whiteTailedDeer = new Animal("13", "White-tailed Deer", "test3",
                 R.drawable.white_tailed_deer);
         whiteTailedDeer.setAnimalClass("mammal");
@@ -87,16 +97,56 @@ public class DummyContent {
                 R.drawable.eastern_cottontail);
         easternCottontail.setAnimalClass("mammal");
         easternCottontail.setSpecies("Sylvilagus floridanus");
+
         Animal bluejay = new Animal("15", "Blue Jay", "test3", R.drawable.bluejay);
         bluejay.setAnimalClass("bird");
         bluejay.setSpecies("Cyanocitta cristata");
+
         Animal northAmericanPorcupine = new Animal("16", "North American Porcupine", "test3",
                 R.drawable.north_american_porcupine);
         northAmericanPorcupine.setAnimalClass("mammal");
         northAmericanPorcupine.setSpecies("Erethizon dorsatum");
+
         Animal canadaGoose = new Animal("17", "Canada Goose", "test3", R.drawable.canada_goose);
         canadaGoose.setAnimalClass("bird");
         canadaGoose.setSpecies("Branta canadensis");
+
+        Animal americanBlackBear = new Animal("18", "American Black Bear", "test3",
+                R.drawable.american_black_bear);
+        americanBlackBear.setAnimalClass("mammal");
+        americanBlackBear.setSpecies("Ursus americanus");
+
+        Animal meadowVole = new Animal("19", "Meadow Vole", "test3", R.drawable.meadow_vole);
+        meadowVole.setAnimalClass("mammal");
+        meadowVole.setSpecies("Microtus pennsylvanicus");
+
+        Animal wolverine = new Animal("20", "Wolverine", "test3", R.drawable.wolverine);
+        wolverine.setAnimalClass("mammal");
+        wolverine.setSpecies("Gulo gulo");
+
+        Animal bobcat = new Animal("21", "Bobcat", "test3", R.drawable.bobcat);
+        bobcat.setAnimalClass("mammal");
+        bobcat.setSpecies("Lynx rufus");
+
+        Animal littleBrownBat = new Animal("22", "Little Brown Bat", "test3",
+                R.drawable.little_brown_bat);
+        littleBrownBat.setAnimalClass("mammal");
+        littleBrownBat.setSpecies("Myotis lucifugus");
+
+        Animal fiveLinkedSkink = new Animal("23", "Five-linked Skink", "test3",
+                R.drawable.five_linked_skink);
+        fiveLinkedSkink.setAnimalClass("reptile");
+        fiveLinkedSkink.setSpecies("Plestiodon fasciatus");
+
+        Animal americanMartin = new Animal("24", "American Marten", "test3",
+                R.drawable.american_pine_marten);
+        americanMartin.setAnimalClass("mammal");
+        americanMartin.setSpecies("Martes americana");
+
+        Animal grayTreeFrog = new Animal("25", "Gray Tree Frog", "test3",
+                R.drawable.gray_tree_frog);
+        grayTreeFrog.setAnimalClass("amphibian");
+        grayTreeFrog.setSpecies("Hyla versicolor");
 
         //Add animals to universal animal list
         addItem(beaver);
@@ -116,8 +166,16 @@ public class DummyContent {
         addItem(bluejay);
         addItem(northAmericanPorcupine);
         addItem(canadaGoose);
+        addItem(americanBlackBear);
+        addItem(meadowVole);
+        addItem(wolverine);
+        addItem(bobcat);
+        addItem(littleBrownBat);
+        addItem(fiveLinkedSkink);
+        addItem(americanMartin);
+        addItem(grayTreeFrog);
 
-        //Adding Mammals to mammal list
+        //Adding Mammals to their associated class lists
         for (Animal animal : ITEMS)
         {
             if (animal.getAnimalClass().equals("mammal"))
@@ -127,6 +185,14 @@ public class DummyContent {
             if (animal.getAnimalClass().equals("bird"))
             {
                 addBirdItem(animal);
+            }
+            if (animal.getAnimalClass().equals("reptile"))
+            {
+                addReptileItem(animal);
+            }
+            if (animal.getAnimalClass().equals("amphibian"))
+            {
+                addAmphibianItem(animal);
             }
         }
 
@@ -164,18 +230,30 @@ public class DummyContent {
         BIRDS_MAP.put(item.id, item);
     }
 
+    private static void addReptileItem(Animal item)
+    {
+        REPTILES.add(item);
+        REPTILES_MAP.put(item.id, item);
+    }
+
+    private static void addAmphibianItem(Animal item)
+    {
+        AMPHIBIANS.add(item);
+        AMPHIBIANS_MAP.put(item.id, item);
+    }
+
     /*private static DummyItem createDummyItem(int position) {
         return new DummyItem(String.valueOf(position), "Item " + position, makeDetails(position));
     }*/
 
-    private static String makeDetails(int position) {
+    /*private static String makeDetails(int position) {
         StringBuilder builder = new StringBuilder();
         builder.append("Details about Item: ").append(position);
         for (int i = 0; i < position; i++) {
             builder.append("\nMore details information here.");
         }
         return builder.toString();
-    }
+    }*/
 
 
 }

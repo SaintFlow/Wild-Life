@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
+ * Encyclopedia class contianing all the descriptions of each species, used by the
+ * AnimalDetailFragment class
  * Created by Randy on 5/16/2017.
  */
 public class Encyclopedia
@@ -1166,6 +1168,413 @@ public class Encyclopedia
                 canadaGoose10, canadaGoose11, canadaGoose12, canadaGoose13, canadaGoose14,
                 canadaGoose15);
         ency.put("Canada Goose", canadaGeese);
+
+        // American black bear,
+        // from http://www.discoverwildlife.com/animals/mammals/10-amazing-black-bear-facts
+        // wikipedia, http://www.defenders.org/black-bear/basic-facts
+        final String americanBlackBear1 = "The black bear Ursus americanus is the smallest, " +
+                "yet most common, of the three bear species found in America (after " +
+                "the polar and grizzly). The current population estimate is 750,000 individuals.";
+        final String americanBlackBear2 = "Black bears are excellent climbers and are often " +
+                "photographed scaling trees. Their claws give them great grip, and the branches" +
+                " offer youngsters safety from predators. Cubs can be very adventurous, " +
+                "climbing high into the treetops.";
+        final String americanBlackBear3 = "Black bears are also good swimmers, and will readily" +
+                " enter water in search of fish. Black bear cubs take to the water easily and" +
+                " quickly, and one adult is believed to have swum nine miles along the Gulf" +
+                " of Mexico.";
+        final String americanBlackBear4 = "Despite their name, black bears are not always " +
+                "black – they can also be light brown, blond or even grey-blue. A subspecies" +
+                " of black bear with white fur, known as the Kermode or spirit bear, lives " +
+                "in British Columbia.";
+        final String americanBlackBear5 = "Female black bears can give birth to up to six cubs," +
+                " and usually breed every other year. Cubs stay with their mother for about" +
+                " 18 months.";
+        final String americanBlackBear6 = "If you come across a bear at close range, the usual" +
+                " advice is to retreat slowly, still facing the bear. Do not run. Bears are" +
+                " known to make mock-charges to within a few metres – if they do this, stand" +
+                " your ground and shout.";
+        final String americanBlackBear7 = "Black bears tend to shuffle along slowly when" +
+                " walking, but are able to run at speeds of around 40-50kph. However, they " +
+                "cannot maintain this pace for long. Plump bears in heavy winter coats tire " +
+                "out particularly quickly.";
+        final String americanBlackBear8 = "During their time in hibernation, bears' heart rate " +
+                "drops from 40–50 beats per minute to 8 beats per minute, and metabolic rate " +
+                "can drop to a quarter of a bear's (non-hibernating) basal metabolic rate (BMR)." +
+                " These reductions in metabolic rate and heart rate do not appear to decrease" +
+                " the bear's ability to heal injuries during hibernation.";
+        final String americanBlackBear9 = "Prior to hibernation, they can put on up to 14 kg" +
+                " (30 lb) of body fat to get them through the several months during which they" +
+                " fast. Hibernation in black bears typically lasts 3–8 months, depending on" +
+                " regional climate.";
+        final String americanBlackBear10 = "Up to 85% of the black bear's diet consists of " +
+                "vegetation, but they also feed on  insects such as bees, yellow jackets, ants " +
+                "and their larvae.";
+        final String americanBlackBear11 = "Although black bears do not often engage in active" +
+                " predation of other large animals for much of the year, the species will " +
+                "regularly prey on mule and white-tailed deer fawns in spring, given the " +
+                "opportunity.";
+        final String americanBlackBear12 = "Black bears tend to be solitary animals, with the" +
+                " exception of mothers and cubs. The bears usually forage alone, but will" +
+                " tolerate each other and forage in groups if there is an abundance of food" +
+                " in one area.";
+        final String americanBlackBear13 = "The American black bear is distributed throughout " +
+                "North America, from Canada to Mexico and in at least 40 states in the U.S.";
+
+        List<String> americanBlackBears = Arrays.asList(americanBlackBear1, americanBlackBear2,
+                americanBlackBear3, americanBlackBear4, americanBlackBear5, americanBlackBear6,
+                americanBlackBear7, americanBlackBear8, americanBlackBear9, americanBlackBear10,
+                americanBlackBear11, americanBlackBear12, americanBlackBear13);
+        ency.put("American Black Bear", americanBlackBears);
+
+        //Meadow Voles, from wikipedia,
+        // http://www.arkive.org/meadow-vole/microtus-pennsylvanicus/
+        //  https://www.britannica.com/animal/meadow-vole
+        final String meadowVole1 = "The meadow vole is active year-round, usually at night. " +
+                "It also digs underground burrows, where it stores food for the winter and " +
+                "females give birth to their young. Although these animals tend to live close" +
+                " together, they are aggressive towards one another.";
+        final String meadowVole2 = "Meadow voles are most commonly found in grasslands, " +
+                "preferring moister areas, but are also found in wooded areas.";
+        final String meadowVole3 = "Meadow voles are active year-round and day or night, with" +
+                " no clear 24-hour rhythm in many areas.";
+        final String meadowVole4 = "In Canada, meadow voles are active the first few hours after" +
+                " dawn and during the two- to four-hour period before sunset. Most of the " +
+                "inactive period is spent in the nest.";
+        final String meadowVole5 = "The size and colour of the meadow vole varies depending on" +
+                " location, but the species is generally dark brown above and silvery-grey below.";
+        final String meadowVole6 = "A prolific species, the meadow vole can produce up to 11 " +
+                "young per litter, and more than 10 litters per year.";
+        final String meadowVole7 = "Optimal meadow vole habitat consists of moist, dense " +
+                "grassland with substantial amounts of plant litter. Habitat selection is " +
+                "largely influenced by relative ground cover of grasses and forbs; soil " +
+                "temperature, moisture, sodium, potassium, and pH levels; humidity; and " +
+                "interspecific competition.";
+        final String meadowVole8 = "Meadow voles eat most available species of grasses, sedges" +
+                ", and forbs, including many agricultural plant species.";
+        final String meadowVole9 = "Weighing less than 50 grams (1.8 ounces), this stout vole " +
+                "is 15 to 20 cm (5.9 to 7.9 inches) long, including its short tail (3 to 6 cm).";
+        final String meadowVole10 = "The meadow vole is one of 61 species in the genus Microtus." +
+                " Its closest living relative is the beach vole (M. breweri) of Muskeget " +
+                "Island off the coast of Massachusetts, which evolved from mainland " +
+                "populations of the meadow vole only during the last 3,000 years.";
+        final String meadowVole11 = "The meadow vole has the largest geographic distribution " +
+                "of any species of Microtus in North America. Its range extends through almost" +
+                " all of Alaska and Canada southward through the Rocky Mountains to New Mexico" +
+                " and eastward across the northern Great Plains to the Atlantic seaboard from" +
+                " Maine to Georgia. Isolated populations are found in western Florida and " +
+                "northern Chihuahua, Mexico.";
+
+        List<String> meadowVoles = Arrays.asList(meadowVole1, meadowVole2, meadowVole3, meadowVole4
+        , meadowVole5, meadowVole6, meadowVole7, meadowVole8, meadowVole9, meadowVole10,
+                meadowVole11);
+        ency.put("Meadow Vole", meadowVoles);
+
+        // Wolverine, from wikipedia; nationalgeographic
+        final String wovlerine1 = "The wolverine, Gulo gulo (Gulo is Latin for \"glutton\"), " +
+                "also referred to as the glutton, carcajou, skunk bear, or quickhatch, is the " +
+                "largest land-dwelling species of the family Mustelidae. It is a stocky and" +
+                " muscular carnivore, more closely resembling a small bear than other mustelids.";
+        final String wovlerine2 = "The wolverine is found primarily in remote reaches of " +
+                "the Northern boreal forests and subarctic and alpine tundra of the Northern" +
+                " Hemisphere, with the greatest numbers in northern Canada, the US state of" +
+                " Alaska, the mainland Nordic countries of Europe, and throughout western Russia" +
+                " and Siberia.";
+        final String wovlerine3 = "Wolverines have thick, dark, oily fur which is highly " +
+                "hydrophobic, making it resistant to frost. This has led to its traditional" +
+                " popularity among hunters and trappers as a lining in jackets and parkas in" +
+                " Arctic conditions. ";
+        final String wovlerine4 = "Wolverines are considered to be primarily scavengers. A " +
+                "majority of the wolverine's sustenance is derived from carrion, on which they" +
+                " depend almost exclusively in winter and early spring.";
+        final String wovlerine5 = "Wolverines are also known to follow wolf and lynx trails, " +
+                "purportedly with the intent of scavenging the remains of their kills. Whether" +
+                " eating live prey or carrion, the wolverine's feeding style appears voracious," +
+                " leading to the nickname of \"glutton\" (also the basis of the scientific name).";
+        final String wovlerine6 = "Prey species include porcupines, squirrels, chipmunks, " +
+                "beavers, marmots, moles, gophers, rabbits, voles, mice, rats, shrews, lemmings," +
+                " caribou, roe deer, white-tailed deer, mule deer, sheep, goats, cattle, bison," +
+                " moose, and elk.";
+        final String wovlerine7 = "Wolverines frequently cache their food during times of " +
+                "plenty. This is of particular importance to lactating females in the winter " +
+                "and early spring, a time when food is scarce.";
+        final String wovlerine8 = "Wolves are thought to be the wolverine's most important" +
+                " natural predator, with the arrival of wolves to a wolverine's territory " +
+                "presumably leading the latter to abandon the area";
+        final String wovlerine9 = "Successful males will form lifetime relationships with two or" +
+                " three females, which they will visit occasionally, while other males are left" +
+                " without a mate.";
+        final String wovlerine10 = "Kits develop rapidly, reaching adult size within the first " +
+                "year. The typical longevity of a wolverine in captivity is around 15 to 17 " +
+                "years, but in the wild the average lifespan is more likely between 8 and " +
+                "10 years.";
+        final String wovlerine11 = "The world's total wolverine population is not known. The " +
+                "animal exhibits a low population density and requires a very large home range.";
+        final String wovlerine12 = "These tough animals are solitary, and they need a lot of " +
+                "room to roam. Individual wolverines may travel 15 miles in a day in search" +
+                " of food.";
+        final String wovlerine13 = "Wolverines eat a bit of vegetarian fare, like plants and " +
+                "berries, in the summer season, but this does not make up a major part of their" +
+                " diet—they are tenacious predators with a taste for meat.";
+
+        List<String> wolverines = Arrays.asList(wovlerine1, wovlerine2, wovlerine3, wovlerine4,
+                wovlerine5, wovlerine6, wovlerine7, wovlerine8, wovlerine9, wovlerine10,
+                wovlerine11, wovlerine12, wovlerine13);
+        ency.put("Wolverine", wolverines);
+
+        //Bobcat, from wikipedia, nationalgeographic
+        final String bobcat1 = "Bobcats are elusive and nocturnal, so they are rarely spotted " +
+                "by humans. Although they are seldom seen, they roam throughout much of North" +
+                " America and adapt well to such diverse habitats as forests, swamps, deserts," +
+                " and even suburban areas.";
+        final String bobcat2 = "Bobcats, sometimes called wildcats, are roughly twice as big as " +
+                "the average housecat. They have long legs, large paws, and tufted ears similar" +
+                " to those of their larger relative, the Canada lynx.";
+        final String bobcat3 = "Most bobcats are brown or brownish red with a white underbelly" +
+                " and short, black-tipped tail. The cat is named for its tail, which appears to" +
+                " be cut or \"bobbed.\"";
+        final String bobcat4 = "Fierce hunters, bobcats can kill prey much bigger than " +
+                "themselves, but usually eat rabbits, birds, mice, squirrels, and other " +
+                "smaller game. The bobcat hunts by stealth, but delivers a deathblow with" +
+                " a leaping pounce that can cover 10 feet.";
+        final String bobcat5 = "Bobcats are solitary animals. Females choose a secluded den to" +
+                " raise a litter of one to six young kittens, which will remain with their " +
+                "mother for 9 to 12 months. During this time they will learn to hunt before" +
+                " setting out on their own.";
+        final String bobcat6 = "In some areas, bobcats are still trapped for their soft, " +
+                "spotted fur. North American populations are believed to be quite large, " +
+                "with perhaps as many as one million cats in the United States alone.";
+        final String bobcat7 = "Though the bobcat prefers rabbits and hares, it hunts insects," +
+                " chickens, geese and other birds, small rodents, and deer. Prey selection" +
+                " depends on location and habitat, season, and abundance.";
+        final String bobcat8 = "There had been debate over whether to classify this species" +
+                " as Lynx rufus or Felis rufus as part of a wider issue regarding whether " +
+                "the four species of Lynx should be given their own genus, or be placed as a " +
+                "subgenus of Felis.The Lynx genus is now accepted, and the bobcat is listed" +
+                " as Lynx rufus in modern taxonomic sources.";
+        final String bobcat9 = "It keeps on the move from three hours before sunset until " +
+                "about midnight, and then again from before dawn until three hours after" +
+                " sunrise. Each night, it moves from 2 to 7 mi (3.2 to 11.3 km) along" +
+                " its habitual route.";
+        final String bobcat10 = "Overall, the population of the bobcat is fairly stable. " +
+                "In some areas their numbers are increasing and in other areas the population" +
+                " is declining. They are currently listed as a species of least concern.";
+        final String bobcat11 = "Its population in Canada is limited due to both snow depth " +
+                "and the presence of the Canadian lynx. The bobcat does not tolerate deep " +
+                "snow, and waits out heavy storms in sheltered areas;";
+        final String bobcat12 = "It has been known to kill deer, especially in winter when " +
+                "smaller prey is scarce, or when deer populations become more abundant.";
+
+        List<String> bobcats = Arrays.asList(bobcat1, bobcat2, bobcat3, bobcat4, bobcat5, bobcat6,
+                bobcat7, bobcat8, bobcat9, bobcat10, bobcat11, bobcat12);
+        ency.put("Bobcat", bobcats);
+
+        //Little Brown bat, from wikipedia
+        // http://www.batworlds.com/little-brown-bat/
+        final String littleBrownBat1 = "The little brown bat (sometimes called little brown " +
+                "myotis) (Myotis lucifugus) is a species of the genus Myotis (mouse-eared " +
+                "bats), one of the most common bats of North America. It has been a model" +
+                " organism for the study of bats (chiropterology).";
+        final String littleBrownBat2 = "The little brown bat lives throughout much of " +
+                "North America. It is most common in the northern half of the continental" +
+                " United States and southern Canada. Most specimens from the northern ";
+        final String littleBrownBat3 = "The little brown bat lives in three different roosting" +
+                " sites: day roosts, night roost and hibernation roosts";
+        final String littleBrownBat4 = "Bats rest in night roosts after feeding in the evening" +
+                " which may serve to keep their feces away from the day roosts and thus less" +
+                " noticeable to predators.";
+        final String littleBrownBat5 = "The Little Brown Bat sleeps and grooms during the day." +
+                " They are fast creatures and hunt by night. They live in caves and mines" +
+                " during the winter months. Their hibernation cycle can last from four to" +
+                " six months.";
+        final String littleBrownBat6 = "Wasps and moths are the majority of their diet in such" +
+                " an environment. They can consume up to half of their body weight each night" +
+                " when it comes to their eating habits.";
+        final String littleBrownBat7 = "Most of the time the Little Brown Bat will consume its" +
+                " meals while in flight. They have very sharp molars. They have canines that are" +
+                " shaped in a manner that allows them to hold onto their prey while they are in" +
+                " flight. They will also use the tip of their wing to capture food.";
+        final String littleBrownBat8 = "When a Little Brown Bat doesn’t find enough food to eat" +
+                " on a given day, it will have to slow its body rate while sleeping during the " +
+                "day. This process allows it to conserve energy.";
+        final String littleBrownBat9 = "The female Little Brown Bat is ready to mate from 7 to" +
+                " 9 months of age. The males mature later, when they are about 1 year old." +
+                " Even though mating occurs in the fall, the females are able to delay the" +
+                " fertilization of the sperm and the egg. She won’t allow that to occur" +
+                " until spring time.";
+        final String littleBrownBat10 = " Typically only one young is born at a time. They grow " +
+                "very fast, consuming the milk from their mother’s body. They can’t fly at birth" +
+                " so they are vulnerable. They hold onto her midsection and hang there. By the" +
+                " time they are a month old though they are already self-sufficient members of" +
+                " the colony.";
+        final String littleBrownBat11 = "Little brown bats are insectivores, eating moths," +
+                " wasps, beetles, gnats, mosquitoes, midges and mayflies, among others";
+        final String littleBrownBat12 = "They are particularly good at hunting insects when they" +
+                " are at close range and packed together. When hunting, little brown bats " +
+                "capture prey both by gleaning and by catching them in the air. When in flight," +
+                " bats scoop up the prey with their wings, while prey above water is directly" +
+                " grabbed with the mouth.";
+        final String littleBrownBat13 = "Brown bats live approximately 6 to 7 years and often" +
+                " live well beyond 10 years. Little brown bats are preyed on by a variety of" +
+                " animals, including small carnivores, birds, rats and snakes.";
+
+        List<String> littleBrownBats = Arrays.asList(littleBrownBat1, littleBrownBat2,
+                littleBrownBat3, littleBrownBat4, littleBrownBat5, littleBrownBat6,
+                littleBrownBat7, littleBrownBat8, littleBrownBat9, littleBrownBat10,
+                littleBrownBat11, littleBrownBat12, littleBrownBat13);
+        ency.put("Liitle Brown Bat", littleBrownBats);
+
+        //Five-linked skink, from wikipedia
+        final String fiveLinkedSkink1 = "The (American) five-lined skink (Plestiodon " +
+                "fasciatus) is a species of lizard endemic to North America. It is one of the " +
+                "most common lizards in the eastern U.S. and one of the seven native species of" +
+                " lizards in Canada.";
+        final String fiveLinkedSkink2 = "Other common names include blue-tailed skink (for" +
+                " juveniles) and red-headed skink (for adults).";
+        final String fiveLinkedSkink3 = "oung five-lined skinks are dark brown to black with" +
+                " five distinctive white to yellowish stripes running along the body and a" +
+                " bright blue tail. The blue color fades to light blue with age, and the " +
+                "stripes also may slowly disappear.";
+        final String fiveLinkedSkink4 = "The range of the five-lined skink extends in the north" +
+                " to southern Ontario, Michigan and eastern New York. The western border is in" +
+                " Minnesota, Missouri and eastern Kansas, Nebraska, Oklahoma, Florida, " +
+                "Mississippi, Texas, Louisiana and Texas.";
+        final String fiveLinkedSkink5 = "The Great Lakes - St. Lawrence population is listed " +
+                "as \"special concern\" in Ontario and Canada by COSSARO and COSEWIC, and it is" +
+                " illegal to remove skinks from their habitats.";
+        final String fiveLinkedSkink6 = "Five-lined skinks are ground-dwelling animals. They" +
+                " prefer moist, partially wooded habitat that provides ample cover or inside" +
+                " walls of buildings, trees as well as sites to bask in the sun. They can also" +
+                " be found in broken, rocky areas at the northern edge of their habitat.";
+        final String fiveLinkedSkink7 = "Adult male five-lined skinks exhibit complex courtship" +
+                " and aggressive behavior. Although males tolerate juveniles and females" +
+                " in their territories, they actively defend these areas against other males.";
+        final String fiveLinkedSkink8 = "Females lay two to 15 eggs in the early summer in a " +
+                "nest excavated under cover or within a rotting log. Several females may nest " +
+                "together and will protect their nest from predators. Females bask in the sun " +
+                "and return to the nest to use their bodies to warm their eggs, which hatch in " +
+                "late summer.";
+        final String fiveLinkedSkink9 = "These lizards eat a wide variety of invertebrates," +
+                " such as insects, spiders and worms, and track prey with their keen sense of" +
+                " smell.";
+        final String fiveLinkedSkink10 = "If a predator catches a skink by the tail, it will " +
+                "break off and begin to thrash about. The moving tail distracts the predator" +
+                " while the lizard escapes. Although a new tail will grow over time, the skink" +
+                " will have lost much of the fat reserves on which it relies to survive the" +
+                " winter.";
+
+        List<String> fiveLinkedSkinks = Arrays.asList(fiveLinkedSkink1, fiveLinkedSkink2,
+                fiveLinkedSkink3, fiveLinkedSkink4, fiveLinkedSkink5, fiveLinkedSkink6,
+                fiveLinkedSkink7, fiveLinkedSkink8, fiveLinkedSkink9, fiveLinkedSkink10);
+        ency.put("Five-linked Skink", fiveLinkedSkinks);
+
+        //American Martin, from wikipedia
+        // https://www.nature.org/newsfeatures/specialfeatures/animals/mammals/pine-marten.xml
+        // http://www.softschools.com/facts/animals/american_marten_facts/1138/
+        final String americanMartin1 = "The American marten or American pine marten (Martes " +
+                "americana) is a North American member of the family Mustelidae, sometimes " +
+                "referred to as the pine marten. The name \"pine marten\" is derived from the" +
+                " common but distinct Eurasian species of Martes.";
+        final String americanMartin2 = "The marten lives in mature coniferous or mixed forests" +
+                " in Alaska and Canada, the Pacific Northwest of the United States and south" +
+                " into Northern New England and through the Rocky Mountains and Sierra Nevada.";
+        final String americanMartin3 = "The American marten is a long, slender-bodied weasel " +
+                "about the size of a mink with relatively large rounded ears, short limbs, and" +
+                " a bushy tail. American marten have a roughly triangular head and sharp nose" +
+                ". Their long, silky fur ranges in color from pale yellowish buff to tawny" +
+                " brown to almost black.";
+        final String americanMartin4 = "Sexual dimorphism is pronounced, with males averaging" +
+                " about 15% larger than females in length and as much as 65% larger in body" +
+                " weight.";
+        final String americanMartin5 = "American marten reach sexual maturity by 1 year of age," +
+                " but effective breeding may not occur before 2 years of age. In captivity," +
+                " 15-year-old females bred successfully. In the wild, 12-year-old females" +
+                " were reproductive.";
+        final String americanMartin6 = " Females give birth in late March or April to a litter" +
+                " ranging from 1 to 5 kits. Annual reproductive output is low according to" +
+                " predictions based on body size. Fecundity varies by age and year and may" +
+                " be related to food abundance.";
+        final String americanMartin7 = "Females prepare a natal den by lining a cavity with " +
+                "grass, moss, and leaves. They frequently move kits to new maternal dens" +
+                " once kits are 7–13 weeks old. Most females spend more than 50% of their " +
+                "time attending dens in both preweaning and weaning periods, with less time" +
+                " spent at dens as kits aged.";
+        final String americanMartin8 = "They require about 80 cal/day while at rest, " +
+                "the equivalent of about 3 voles, which make up the majority of their diet.";
+        final String americanMartin9 = "American marten in captivity may live for 15 years. " +
+                "The oldest individual documented in the wild was 14.5 years old.";
+        final String americanMartin10 = "The fur of the American marten is shiny and luxuriant," +
+                " resembling that of the closely related sable. At the turn of the twentieth" +
+                " century, the American marten population was depleted due to the fur trade.";
+        final String americanMartin11 = "American martens are agile climbers and good swimmers," +
+                " but they spend most of their lives on the ground.";
+        final String americanMartin12 = "American martens are solitary animals except during" +
+                " the mating season which takes place from June to August. " +
+                "Males aggressively fight for the attention of females (their" +
+                " heads and shoulders are often covered with scars).";
+        final String americanMartin13 = "American martens are omnivores. Their diet is based" +
+                " on mice, squirrels, hares, small birds, reptiles, insects, fruit and nuts.";
+        final String americanMartin14 = "Usually shy and curious, pine martens are also solitary" +
+                " and territorial. Neither sex will allow another marten of the same sex in " +
+                "their home territory, though males will tolerate the presence of multiple" +
+                " females.";
+
+        List<String> americanMartins = Arrays.asList(americanMartin1, americanMartin2,
+                americanMartin3, americanMartin4, americanMartin5, americanMartin6, americanMartin7
+        , americanMartin8, americanMartin9, americanMartin10, americanMartin11, americanMartin12,
+                americanMartin13, americanMartin14);
+        ency.put("American Martin", americanMartins);
+
+        //Gray tree frog, from wikipedia
+        // http://www.nhptv.org/natureworks/graytreefrog.htm
+        final String grayTreeFrog1 = "he gray treefrog (Hyla versicolor) is a species of small" +
+                " arboreal frog native to much of the eastern United States and southeastern" +
+                " Canada.";
+        final String grayTreeFrog2 = "It is sometimes referred to as the eastern gray" +
+                " treefrog, common gray treefrog, or tetraploid gray treefrog to distinguish" +
+                " it from its more southern, genetically disparate relative, the Cope's" +
+                " gray treefrog.";
+        final String grayTreeFrog3 = "As the scientific name implies, gray treefrogs are" +
+                " variable in color owing to their ability to camouflage themselves from" +
+                " gray to green, depending on the substrate where they are sitting.";
+        final String grayTreeFrog4 = "They can change from nearly black to nearly white.";
+        final String grayTreeFrog5 = "The gray treefrog also has 48 chromosomes (4n), and is" +
+                " called tetraploid gray treefrog in scientific circles.";
+        final String grayTreeFrog6 = "Gray treefrogs inhabit a wide range, and can be found" +
+                " in most of the eastern half of the United States, as far west as central" +
+                " Texas and Oklahoma. They also range into Canada in the provinces of " +
+                "Quebec, Ontario, and Manitoba, with an isolated population in New Brunswick.";
+        final String grayTreeFrog7 = "They prefer to breed in semipermanent woodland ponds" +
+                " without fish, but also lay eggs in swamps, vernal pools, man- made " +
+                "fountains and water gardens, and even in rainwater filled swimming pool covers.";
+        final String grayTreeFrog8 = "These frogs rarely ever descend from high treetops " +
+                "except for breeding. They are strictly nocturnal.";
+        final String grayTreeFrog9 = "Gray treefrogs may congregate around windows and porch" +
+                " lights to eat insects that are attracted to the light. During the day they" +
+                " often rest on horizontal tree branches or leaves out in the open, even" +
+                " in the sun. ";
+        final String grayTreeFrog10 = "In captivity, they become tame and learn to associate" +
+                " their owners with food, even to the point of lunging at empty fingers that" +
+                " usually contain an insect.";
+        final String grayTreeFrog11 = "Mating calls and chorusing are most frequent at night," +
+                " but individuals often call during daytime in response to thunder or other" +
+                " loud noises.";
+        final String grayTreeFrog12 = "The female lays as many as 2000 eggs in groups of 10-40." +
+                " The tadpoles hatch in four or five days and will change into froglets in" +
+                " about two months.";
+        final String grayTreeFrog13 = "The gray treefrog finds its food in the trees and " +
+                "shrubs. It eats moths, tree crickets, ants, flies, grasshoppers and " +
+                "beetles. It is very acrobatic and will often jump from branch to branch" +
+                " to catch its prey.";
+        final String grayTreeFrog14 = "These frogs are rarely seen outside the breeding season." +
+                " When they are not active, they hide in tree holes, under bark, in rotten logs," +
+                " and under leaves and tree roots.";
+
+        List<String> grayTreeFrogs = Arrays.asList(grayTreeFrog1, grayTreeFrog2, grayTreeFrog3,
+                grayTreeFrog4, grayTreeFrog5, grayTreeFrog6, grayTreeFrog7, grayTreeFrog8,
+                grayTreeFrog9, grayTreeFrog10, grayTreeFrog11, grayTreeFrog12, grayTreeFrog13,
+                grayTreeFrog14);
+        ency.put("Gray Tree Frog", grayTreeFrogs);
     }
 
 

@@ -1,42 +1,13 @@
 package commonflow.wildlife;
 
-import android.Manifest;
-import android.annotation.TargetApi;
-import android.app.Activity;
-import android.content.Context;
-import android.content.DialogInterface;
+
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
-import android.preference.DialogPreference;
-import android.provider.MediaStore;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.widget.NestedScrollView;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.View;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ScrollView;
-import android.widget.TextView;
-
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 
 /**
  * An activity representing a single Animal detail screen. This
@@ -44,18 +15,8 @@ import java.io.IOException;
  * item details are presented side-by-side with a list of items
  * in a {@link AnimalListActivity}.
  */
-public class AnimalDetailActivity extends AppCompatActivity {
-
-    private static final int MY_PERMISSIONS_READ_EXTERNAL_STORAGE = 0;
-    private static final int REQUEST_CAMERA = 1;
-    private static final int SELECT_FILE = 1;
-    //private Boolean result = false;
-    private CharSequence userChosenTask = "";
-    Bitmap bitmap;
-    private ImageView ivImage;
-    private Button btn;
-    private LinearLayout li;
-
+public class AnimalDetailActivity extends AppCompatActivity
+{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,30 +24,8 @@ public class AnimalDetailActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
         setSupportActionBar(toolbar);
 
-        NestedScrollView sv = (NestedScrollView) findViewById(R.id.animal_detail_container);
-
-        Button buttonTest = new Button(getApplicationContext());
-        //Log.d("Child Count", sv.getChildCount() + "");
-        //li = (LinearLayout) findViewById(R.id.animal_detail);
-        li = new LinearLayout(getApplicationContext());
-        LinearLayout.LayoutParams liParams = new LinearLayout.LayoutParams
-                (LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-
-        li.setOrientation(LinearLayout.VERTICAL);
-        TextView testers = new TextView(getApplicationContext());
-        buttonTest.setLayoutParams(liParams);
-        buttonTest.setText("Select Photo");
-        li.addView(buttonTest);
-        testers.setText("Will this work?");
-        //Log.d("Child Count", sv.getChildCount() + "");
-        //sv.removeAllViews();
-        //Log.d("Child Count", sv.getChildCount() + "");
-        //sv.addView(li);
-        Log.d("Activity Turn", "Activity");
 
         //btn = (Button) findViewById(R.id.btnSelectPhoto);
-
-        ivImage = new ImageView(getApplicationContext());
 
         // Show the Up button in the action bar.
         ActionBar actionBar = getSupportActionBar();
@@ -116,8 +55,6 @@ public class AnimalDetailActivity extends AppCompatActivity {
                     .commit();
         }
     }
-
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
