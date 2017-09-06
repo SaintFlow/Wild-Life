@@ -77,18 +77,19 @@ public class DBHandler extends SQLiteOpenHelper
         return db.delete(TABLE_ANIMAL_DETAIL, KEY_ID + "=" + delID, null) > 0;
     }
 
-    public int getAnimalSize(String animal)
+    /*public int getAnimalSize(String animal)
     {
         String selectQuery = "SELECT COUNT(" + KEY_ID + ") FROM " + TABLE_ANIMAL_DETAIL;
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
-
-        return cursor.getInt(0);
-    }
+        int size = cursor.getInt(0);
+        cursor.close();
+        return size;
+    }*/
 
     public List<AnimalPicture> getAnimalList(String animal)
     {
-        List<AnimalPicture> animalList = new ArrayList<AnimalPicture>();
+        List<AnimalPicture> animalList = new ArrayList<>();
         String selectQuery = "SELECT  * FROM " + TABLE_ANIMAL_DETAIL
                 + " WHERE animal='" + animal + "'";
 
@@ -110,6 +111,8 @@ public class DBHandler extends SQLiteOpenHelper
 
             } while (cursor.moveToNext());
         }
+        cursor.close();
+        db.close();
 
         return animalList;
 

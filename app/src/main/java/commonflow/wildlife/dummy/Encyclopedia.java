@@ -15,7 +15,10 @@ public class Encyclopedia
 
     private HashMap<String, List<String>> ency;
 
-    public Encyclopedia() {
+    public Encyclopedia()
+    {
+        ency = new HashMap<>();
+
         //North American beaver, taken from Wikipedia, sciencekids.co.nz, PBS videos
         final String northAmericanBeaver1 = "The North American Beaver is the largest rodent in " +
                 "North America, with the European beaver being the second-largest rodent in " +
@@ -129,7 +132,7 @@ public class Encyclopedia
                 "faster digger, while the coyote has much butter hearing for finding rodents " +
                 "underground";
 
-        //Seagull strings, from Wikipedia;
+        // Seagull strings, from Wikipedia;
         // http://www.softschools.com/facts/animals/seagull_facts/695/
         final String seagull1 = "Sea gulls like freshwater, but they’ll drink sea water. " +
                 "Two glands near their eyes drip the salt in the water so they don’t get sick.";
@@ -162,7 +165,7 @@ public class Encyclopedia
                 " sound with their feet to attract earthworms hidden under the ground. " +
                 "Sea gulls transfer all hunting skills and techniques to their offspring.";
 
-        //Raccoon strings, taken from livescience.com; https://onekindplanet.org/animal/raccoon/
+        // Raccoon strings, taken from livescience.com; https://onekindplanet.org/animal/raccoon/
         final String raccoon1 = "Raccoons are round, fuzzy creatures with bushy tails and a " +
                 "black mask of fur that covers their eye area. These animals may look like cute, " +
                 "cuddly bandits, but they can be quite fearsome when approached.";
@@ -200,7 +203,7 @@ public class Encyclopedia
                 "Two months later, female will give birth to 3-4 babies. Their tails don't " +
                 "have bands, and mask around eyes is still missing.";
 
-        //Squirrel strings, taken from livescience.com
+        // Gray Squirrel strings, taken from livescience.com
         final String squirrel1 = "Squirrels are nimble, bushy-tailed rodents found all over " +
                 "the world. They belong to the Sciuridae family, which includes prairie dogs" +
                 ", chipmunks and marmots.";
@@ -253,6 +256,8 @@ public class Encyclopedia
         squirrels.add(squirrel9);
         squirrels.add(squirrel10);
 
+        ency.put("Eastern Gray Squirrel", squirrels);
+
         //Eeastern Chipmunk from Wikipedia; 'Eastern Chipmunk - Films Nature Web TV';
         //nhptv.org/natureworks; interesting-animal-facts.com;
         final String easternChipmunk1 = "The name \"chipmunk\" comes from the Ottawa word " +
@@ -292,9 +297,9 @@ public class Encyclopedia
         final String easternChipmunk11 = "This rodent has four toes on each of its front feet. " +
                 "The back feet have five toes each.";
 
-        ency = new HashMap<>();
 
-        ency.put("Squirrel", squirrels);
+
+
 
         //Seagulls
         List<String> seagulls = new ArrayList<>();
@@ -346,7 +351,7 @@ public class Encyclopedia
         beavers.add(northAmericanBeaver17);
         beavers.add(northAmericanBeaver18);
 
-        ency.put("Beaver", beavers);
+        ency.put("North American Beaver", beavers);
 
         //Coyotes
         List<String> coyotes = new ArrayList<>();
@@ -384,7 +389,6 @@ public class Encyclopedia
         ency.put("Eastern Chipmunk", easternChipmunks);
 
         //Groundhogs, from wikipedia
-
         final String groundhog1 = "The groundhog, also known as a woodchuck or whistlepig, " +
                 "is a rodent of the family Sciuridae, belonging to the group of large " +
                 "ground squirrels known as marmots. Other names include chuck, wood-shock, " +
@@ -463,7 +467,6 @@ public class Encyclopedia
         ency.put("Groundhog", groundhogs);
 
         //American Minks, from Wikipedia; livescience.com
-
         final String americanMink1 = "The American mink is a small, semi-aquatic carnivore " +
                 "that feeds on rodents, fish, crustaceans, frogs, and birds. It is the animal " +
                 "most frequently farmed for its fur, exceeding the silver fox, sable, marten," +
@@ -531,12 +534,11 @@ public class Encyclopedia
         americanMinks.add(americanMink12);
         americanMinks.add(americanMink13);
         americanMinks.add(americanMink14);
-        ency.put("Mink", americanMinks);
+        ency.put("American Mink", americanMinks);
 
         // Opossum from Wikipedia for Virginia Opossums;
         // http://www.discover-southern-ontario.com/possum.html
         // https://seaworld.org/Animal-Info/Animal-Bytes/Mammals/Virginia-Opossum
-
         final String opossum1 = "Opossums originated in South America, and entered North" +
                 " America in the Great American Interchange following the connection " +
                 "of the two continents.";
@@ -596,10 +598,9 @@ public class Encyclopedia
         opossums.add(opossum11);
         opossums.add(opossum12);
         opossums.add(opossum13);
-        ency.put("Opossum", opossums);
+        ency.put("Virginia Opossum", opossums);
 
         //Red fox, from Wikipedix; National Geographic
-
         final String redFox1 = "Red foxes are usually together in pairs or small groups " +
                 "consisting of families, such as a mated pair and their young, or a male " +
                 "with several females having kinship ties. The young of the mated pair " +
@@ -748,7 +749,7 @@ public class Encyclopedia
         skunks.add(skunk11);
         skunks.add(skunk12);
 
-        ency.put("Skunk", skunks);
+        ency.put("Striped Skunk", skunks);
 
         //Canadian Lynx, from Wikipedia; interesting-animal-facts.com
         final String canadianLynx1 = "Canada Lynx, or Canadian Lynx have a dense silvery-brown coat" +
@@ -1575,6 +1576,267 @@ public class Encyclopedia
                 grayTreeFrog9, grayTreeFrog10, grayTreeFrog11, grayTreeFrog12, grayTreeFrog13,
                 grayTreeFrog14);
         ency.put("Gray Tree Frog", grayTreeFrogs);
+
+        //Elk, from wikipedia, nationalgeographic
+        final String elk1 = "Elk are also called wapiti, a Native American word that" +
+                " means \"light-colored deer.\"";
+        final String elk2 = "Elk are related to deer but are much larger than most of " +
+                "their relatives. A bull (male) elk's antlers may reach 4 feet above its " +
+                "head, so that the animal towers 9 feet tall.";
+        final String elk3 = "Bull elk lose their antlers each March, but they begin to " +
+                "grow them back in May in preparation for the late-summer breeding season.";
+        final String elk4 = "In early summer, elk migrate to high mountain grazing grounds" +
+                " where the cows (females) will give birth. Each cow typically has a single" +
+                " calf, which can stand by the time it is 20 minutes old.";
+        final String elk5 = " These powerful animals strip the velvet off their new antlers" +
+                " using them in violent clashes that determine who gets to mate with whom. " +
+                "Males with the bigger antlers, typically older animals, usually win these" +
+                " battles and dominate small herds.";
+        final String elk6 = "An elk’s stomach has four chambers: the first stores food," +
+                " and the other three digest it";
+        final String elk7 = "Only the males have antlers, which start growing in the spring and" +
+                " are shed each winter. The largest antlers may be 1.2 metres long and weigh" +
+                " 18 kilograms (40 lb). Antlers are made of bone which can grow at a rate " +
+                "of 2.5 centimetres (0.98 in) per day.";
+        final String elk8 = "Bulls have a loud vocalization consisting of screams known as " +
+                "bugling, which can be heard for miles. Females are attracted to the males" +
+                " that bugle more often and have the loudest call.";
+        final String elk9 = "By the autumn of their second year, females can produce one and," +
+                " very rarely, two offspring.";
+        final String elk10 = "The offspring will remain with their mothers for almost a year, " +
+                "leaving about the time that the next season's offspring are produced.";
+        final String elk11 = "Wolf and coyote packs and the solitary cougar are the most " +
+                "likely predators, although brown and black bears also prey on elk. Coyote packs" +
+                " mostly prey on elk calves, though they can sometimes take a winter-weakened" +
+                " adult";
+        final String elk12 = "Elk migrate into areas of higher altitude in the spring, " +
+                "following the retreating snows, and the opposite direction in the fall.";
+        final String elk13 = "Their diets vary somewhat depending on the season, with native" +
+                " grasses being a year-round supplement, tree bark being consumed in winter " +
+                "and forbs and tree sprouts during the summer.";
+
+        List<String> elks = Arrays.asList(elk1, elk2, elk3, elk4, elk5, elk6, elk7, elk8, elk9,
+                elk10, elk11, elk12, elk13);
+        ency.put("Elk", elks);
+
+        // North American River Otter, from wikipedia, national geographic
+        final String riverOtter1 = "The North American river otter (Lontra canadensis), also " +
+                "known as the northern river otter or the common otter, is a semiaquatic mammal" +
+                " endemic to the North American continent found in and along its waterways and " +
+                "coasts. ";
+        final String riverOtter2 = "River otters are active year-round, and are most " +
+                "active at night and during crepuscular hours. They become much more nocturnal" +
+                " in the spring, summer, and fall seasons, and more diurnal during winter. ";
+        final String riverOtter3 = "The tail, which is stout and larger in surface area than " +
+                "the limbs, is used for stability while swimming and for short bursts of rapid" +
+                " propulsion. While swimming at the surface, the dorsal portion of the river " +
+                "otter's head, including nostrils, ears, and eyes, is exposed above water. It" +
+                " must remain in motion to maintain its position at the surface.";
+        final String riverOtter4 = "River otters are renowned for their sense of play. " +
+                "Otter play mostly consists of wrestling with conspecifics. Chasing is also a" +
+                " common game. River otters rely upon play to learn survival skills such as" +
+                " fighting and hunting. However, playful behavior was found in only 6% of 294" +
+                " observations in a study in Idaho, and was limited mostly to immature otters.";
+        final String riverOtter5 = "Prey is captured with a quick lunge from ambush, or more" +
+                " rarely, after a sustained chase. River otters can remain underwater for " +
+                "nearly 4 minutes, swim at speeds approaching 11 km/h (6.8 mph), dive to " +
+                "depths nearing 20 m (22 yd), and travel up to 400 m (440 yd) while underwater.";
+        final String riverOtter6 = "River otters dry themselves and uphold the insulative " +
+                "quality of their fur by frequent rubbing and rolling on grass, bare ground," +
+                " and logs.";
+        final String riverOtter7 = "Fish are the primary component of the river otter's " +
+                "diet throughout the year.";
+        final String riverOtter8 = "The North American river otter is more social than " +
+                "most mustelids. In all habitats, their basic social group is the family," +
+                " consisting of an adult female and her progeny. Adult males also commonly" +
+                " establish enduring social groupings, some documented to comprise as many" +
+                " as 17 individuals.";
+        final String riverOtter9 = "River otters can produce a snarling growl or hissing " +
+                "bark when bothered, and a shrill whistle when in pain. When at play or " +
+                "traveling, they sometimes give off low, purring grunts. The alarm call," +
+                " given when shocked or distressed by potential danger, is an explosive snort," +
+                " made by expelling air through the nostrils. River otters also may use a " +
+                "birdlike chirp for communication over longer distances, but the most common" +
+                " sound heard among a group of otters is low-frequency chuckling.";
+        final String riverOtter10 = "In early spring, expectant mothers begin to look for a den" +
+                " where they can give birth. The female otters do not dig their own dens; " +
+                "instead, they rely on other animals, such as beavers, to provide suitable" +
+                " environments to raise their offspring. When the mothers have established " +
+                "their domains, they give birth to several kits. Litter size can reach " +
+                "five, but usually ranges from one to three.";
+        final String riverOtter11 = "The mothers raise their young without aid from adult" +
+                " males. When the pups are about two months old and their coats grow in," +
+                " their mother introduces them to the water.";
+        final String riverOtter12 = "Although commonly called a \"river otter\", the North" +
+                " American river otter is found in a wide variety of aquatic habitats, both" +
+                " freshwater and coastal marine, including lakes, rivers, inland wetlands," +
+                " coastal shorelines, marshes, and estuaries. It can tolerate a great range" +
+                " of temperature and elevations";
+        final String riverOtter13 = "They also have webbed feet, water repellent fur to keep" +
+                " them dry and warm, and nostrils and ears that close in the water. ";
+        final String riverOtter14 = "These otters' range has been greatly reduced by habitat" +
+                " loss, though they exist in such numbers that they are trapped in some" +
+                " locales. Otters are also very sensitive to environmental pollution.";
+        final String riverOtter15 = "An otter's tail is called a rudder.";
+
+        List<String> riverOtters = Arrays.asList(riverOtter1, riverOtter2, riverOtter3,
+                riverOtter4, riverOtter5, riverOtter6, riverOtter7, riverOtter8, riverOtter9,
+                riverOtter10, riverOtter11, riverOtter12, riverOtter13, riverOtter14,
+                riverOtter15);
+        ency.put("North American River Otter", riverOtters);
+
+        // Painted Turtle, from wikipedia
+        final String paintedTurtle1 = "The painted turtle (Chrysemys picta) is the most " +
+                "widespread native turtle of North America. It lives in slow-moving fresh" +
+                " waters, from southern Canada to Louisiana and northern Mexico, and from the" +
+                " Atlantic to the Pacific.";
+        final String paintedTurtle2 = "The adult painted turtle female is 10–25 cm (4–10 in)" +
+                " long; the male is smaller. The turtle's top shell is dark and smooth, " +
+                "without a ridge. Its skin is olive to black with red, orange, or yellow " +
+                "stripes on its extremities.";
+        final String paintedTurtle3 = "Fossils show that the painted turtle existed 15 " +
+                "million years ago. Four regionally based subspecies (the eastern, midland," +
+                " southern, and western) evolved during the last ice age.";
+        final String paintedTurtle4 = "The turtle eats aquatic vegetation, algae, and small" +
+                " water creatures including insects, crustaceans, and fish.";
+        final String paintedTurtle5 = "Reliant on warmth from its surroundings, the painted " +
+                "turtle is active only during the day when it basks for hours on logs or " +
+                "rocks. During winter, the turtle hibernates, usually in the mud at the " +
+                "bottom of water bodies. ";
+        final String paintedTurtle6 = "The painted turtle hunts along water bottoms. It " +
+                "quickly juts its head into and out of vegetation to stir potential victims " +
+                "out into the open water, where they are pursued. The turtle holds large prey" +
+                " in its mouth and tears the prey apart with its forefeet.";
+        final String paintedTurtle7 = "Courtship begins when a male follows a female until he" +
+                " meets her face-to-face. He then strokes her face and neck with his elongated" +
+                " front claws, a gesture returned by a receptive female. The pair repeat" +
+                " the process several times.";
+        final String paintedTurtle8 = "While preparing to dig her nest, the female sometimes " +
+                "exhibits a mysterious preliminary behavior. She presses her throat against" +
+                " the ground of different potential sites, perhaps sensing moisture, warmth," +
+                " texture, or smell, although her exact motivation is unknown. She may further" +
+                " temporize by excavating several false nests[48] as the wood turtles also do.";
+        final String paintedTurtle9 = "The painted turtle is genetically adapted to survive" +
+                " extended periods of subfreezing temperatures with blood that can remain" +
+                " supercooled and skin that resists penetration from ice crystals in the" +
+                " surrounding ground.";
+        final String paintedTurtle10 = "All ages bask for warmth, often alongside other " +
+                "species of turtle. Sometimes more than 50 individuals are seen on one" +
+                " log together.";
+        final String paintedTurtle11 = "The turtle starts its day at sunrise, emerging from the" +
+                " water to bask for several hours. Warmed for activity, it returns to the water" +
+                " to forage. After becoming chilled, the turtle re-emerges for one to two more" +
+                " cycles of basking and feeding.[61] At night, the turtle drops to the bottom " +
+                "of its water body or perches on an underwater object and sleeps";
+        final String paintedTurtle12 = "To thrive, painted turtles need fresh waters with soft" +
+                " bottoms, basking sites, and aquatic vegetation. They find their homes in" +
+                " shallow waters with slow-moving currents, such as creeks, marshes, ponds," +
+                " and the shores of lakes. ";
+        final String paintedTurtle13 = "According to a trade data study, painted turtles were" +
+                " the second most popular pet turtles after red-eared sliders in the early" +
+                " 1990s. As of 2010, most U.S. states allow, but discourage, painted turtle" +
+                " pets, although Oregon forbids keeping them as pets, and Indiana prohibits" +
+                " their sale.";
+        final String paintedTurtle14 = "Painted turtles keep a watch out for predators and" +
+                " seek refuge in the water at the first sign of danger. For protection," +
+                " they can quickly retract their head and legs into their hard shell.";
+        final String paintedTurtle15 = "Female painted turtles are able to store various sets" +
+                " of sperm after mating, so a single clutch of eggs may have been fertilised" +
+                " by several males.";
+
+        List<String> paintedTurtles = Arrays.asList(paintedTurtle1, paintedTurtle2, paintedTurtle3,
+                paintedTurtle4, paintedTurtle5, paintedTurtle6, paintedTurtle7, paintedTurtle8,
+                paintedTurtle9, paintedTurtle10, paintedTurtle11, paintedTurtle12, paintedTurtle13,
+                paintedTurtle14, paintedTurtle15);
+        ency.put("Painted Turtle", paintedTurtles);
+
+        //Snowshoe hare, from wikipedia, national geographic
+        final String snowshoeHare1 = "The snowshoe hare (Lepus americanus), also called the " +
+                "varying hare, or snowshoe rabbit, is a species of hare found in North America." +
+                " It has the name \"snowshoe\" because of the large size of its hind feet. The" +
+                " animal's feet prevent it from sinking into the snow when it hops and walks. " +
+                "Its feet also have fur on the soles to protect it from freezing temperatures.";
+        final String snowshoeHare2 = "For camouflage, its fur turns white during the winter " +
+                "and rusty brown during the summer. Its flanks are white year-round. The " +
+                "snowshoe hare is also distinguishable by the black tufts of fur on the edge" +
+                " of its ears. Its ears are shorter than those of most other hares.";
+        final String snowshoeHare3 = "The snowshoe hare may have up to four litters in a year" +
+                " which average three to eight young. Males compete for females, and" +
+                " females may breed with several males.";
+        final String snowshoeHare4 = "Snowshoe hares are primarily found in boreal forests" +
+                " and upper montane forests; within these forests, they favor habitats" +
+                " with a dense shrub layer.";
+        final String snowshoeHare5 = "They are shy and secretive and spend most of the day in" +
+                " shallow depressions, called forms, scraped out under clumps of ferns, brush" +
+                " thickets, and downed piles of timber. ";
+        final String snowshoeHare6 = "Litters average three to five leverets depending on" +
+                " latitude, elevation, and phase of population cycle, ranging from one to seven.";
+        final String snowshoeHare7 = "Succulent green vegetation is consumed when available " +
+                "from spring to fall; after the first frost, buds, twigs, evergreen needles," +
+                " and bark form the bulk of snowshoe hare diets until spring greenup. Snowshoe" +
+                " hares typically feed at night and follow well-worn forest paths to feed on" +
+                " various plants and trees.";
+        final String snowshoeHare8 = "The snowshoe hare is a major prey item for a number of " +
+                "predators. Major predators include Canada lynx, bobcats, fishers, American " +
+                "martens, long-tailed weasels, minks, foxes), coyote, domestic dogs, domestic" +
+                " cats, wolves, mountain lions, great horned owls, barred owls, spotted" +
+                " owls, other owls, red-tailed hawks, northern goshawks, other hawks, golden" +
+                " eagles, and crows and ravens.";
+        final String snowshoeHare9 = "Hares are carnivorous under the availability of " +
+                "dead animals, and have been known to eat dead rodents such as mice due " +
+                "to low availability of protein in a herbivorous diet.";
+        final String snowshoeHare10 = "The aptly named snowshoe hare has particularly " +
+                "large feet and a winter-white coat. In the summer though, their fur " +
+                "turns brown, taking up to ten weeks to change color completely.";
+        final String snowshoeHare11 = "These animals are nimble and fast, which is fortunate," +
+                " because they are a popular target for many predators.";
+        final String snowshoeHare12 = "Young hares, called leverets, require little care from" +
+                " their mothers and can survive on their own in a month or less.";
+        final String snowshoeHare13 = "They can live up to 3 years in the wild.";
+
+        List<String> snowshoeHares = Arrays.asList(snowshoeHare1, snowshoeHare2, snowshoeHare3,
+                snowshoeHare4, snowshoeHare5, snowshoeHare6, snowshoeHare7, snowshoeHare8,
+                snowshoeHare9, snowshoeHare10, snowshoeHare11, snowshoeHare12, snowshoeHare13);
+        ency.put("Snowshoe Hare", snowshoeHares);
+
+        //Barred Owl, from wikipedia, national geographic
+        final String barredOwl1 = "The barred owl (Strix varia), or northern barred owl, " +
+                "is a true owl (owls of the family Strigidae) native to eastern North America.";
+        final String barredOwl2 = "Adults are large, and are brown to grey with barring on the" +
+                " chest.";
+        final String barredOwl3 = "Their diet consists mainly of small mammals, but they" +
+                " are also known to prey upon other small animals such as birds, reptiles," +
+                " and amphibians";
+        final String barredOwl4 = "It is the only true owl of the eastern United States" +
+                " which has brown eyes; all others have yellow eyes. ";
+        final String barredOwl5 = "This widespread woodland owl dozes by day on a well-hidden" +
+                " perch but seldom relies on its good camouflage to avoid harm. Instead," +
+                " it flies away at the least disturbance, seldom tolerating close approach.";
+        final String barredOwl6 = "Flight is heavy and direct, with slow, methodical" +
+                " wingbeats; occasionally makes long, direct glides.";
+        final String barredOwl7 = "The barred owl is highly vocal, with a wide range of calls." +
+                " Much more likely than other owls to be heard in the daytime. Its most " +
+                "common vocalization is a rhythmic series of loud hoot or whoo notes: " +
+                "who-cooks-for-you, who-cooks-for-you-all.";
+        final String barredOwl8 = "When agitated, this species will make a buzzy, rasping " +
+                "hiss and click its beak together forcefully. While calls are most common" +
+                " at night, the birds do call during the day as well.";
+        final String barredOwl9 = "These owls have few predators, but young, unwary owls may" +
+                " be taken by cats. The most significant predator of barred owls is the" +
+                " great horned owl.";
+        final String barredOwl10 = "The barred owl has been known to live up to 10 years" +
+                " in the wild and 23 years in captivity.";
+        final String barredOwl11 = "If a nest site has proved suitable in the past they " +
+                "will often reuse it as the birds are non-migratory.";
+        final String barredOwl12 = "On 5 April 2007, White House officials announced a U.S." +
+                " Fish and Wildlife Service proposal to shoot barred owls to reduce the" +
+                " threat they pose to the spotted owl.";
+
+        List<String> barredOwls = Arrays.asList(barredOwl1, barredOwl2, barredOwl3, barredOwl4,
+                barredOwl5, barredOwl6, barredOwl7, barredOwl8, barredOwl9, barredOwl10,
+                barredOwl11, barredOwl12);
+        ency.put("Barred Owl", barredOwls);
+
     }
 
 

@@ -50,39 +50,49 @@ public class DummyContent {
         // Add some current Animals and their contents
         // Should use SQLite instead? Not sure what the best way is
 
-        Animal beaver = new Animal("1", "Beaver", "test1", R.drawable.beaver);
+        Animal beaver = new Animal("1", "North American Beaver", "test1", R.drawable.beaver);
         beaver.setAnimalClass("mammal");
+        beaver.setSpecies("Castor canadensis");
 
         Animal coyote = new Animal("2", "Coyote", "test1", R.drawable.coyote);
         coyote.setAnimalClass("mammal");
+        coyote.setSpecies("Canis latrans");
 
         Animal easternChipmunk = new Animal("3", "Eastern Chipmunk", "test3",
                 R.drawable.eastern_chipmunk);
         easternChipmunk.setAnimalClass("mammal");
+        easternChipmunk.setSpecies("Tamias striatus");
 
         Animal groundhog = new Animal("4", "Groundhog", "test3", R.drawable.groundhog);
         groundhog.setAnimalClass("mammal");
+        groundhog.setSpecies("Marmota monax");
 
-        Animal mink = new Animal("5", "Mink", "test1", R.drawable.mink);
+        Animal mink = new Animal("5", "American Mink", "test1", R.drawable.mink);
         mink.setAnimalClass("mammal");
+        mink.setSpecies("Neovison vison");
 
-        Animal opossum = new Animal("6", "Opossum", "test1", R.drawable.opossum);
+        Animal opossum = new Animal("6", "Virginia Opossum", "test1", R.drawable.opossum);
         opossum.setAnimalClass("mammal");
+        opossum.setSpecies("Didelphis virginiana");
 
         Animal raccoon = new Animal("7", "Raccoon", "test1", R.drawable.raccoon);
         raccoon.setAnimalClass("mammal");
+        raccoon.setSpecies("Procyon lotor");
 
         Animal redFox = new Animal("8", "Red Fox", "test1", R.drawable.red_fox);
         redFox.setAnimalClass("mammal");
+        redFox.setSpecies("Vulpes vulpes");
 
         Animal seagull = new Animal("9", "Seagull", "test3", R.drawable.seagull);
         seagull.setAnimalClass("bird");
 
-        Animal skunk = new Animal("10", "Skunk", "test3", R.drawable.skunk);
+        Animal skunk = new Animal("10", "Striped Skunk", "test3", R.drawable.skunk);
         skunk.setAnimalClass("mammal");
+        skunk.setSpecies("Mephitis mephitis");
 
-        Animal squirrel = new Animal("11", "Squirrel", "test2", R.drawable.squirrel);
+        Animal squirrel = new Animal("11", "Eastern Gray Squirrel", "test2", R.drawable.squirrel);
         squirrel.setAnimalClass("mammal");
+        squirrel.setSpecies("Sciurus carolinensis");
 
         Animal canadianLynx = new Animal("12", "Canada Lynx", "test3", R.drawable.canadian_lynx);
         canadianLynx.setSpecies("Lynx canadensis");
@@ -98,7 +108,7 @@ public class DummyContent {
         easternCottontail.setAnimalClass("mammal");
         easternCottontail.setSpecies("Sylvilagus floridanus");
 
-        Animal bluejay = new Animal("15", "Blue Jay", "test3", R.drawable.bluejay);
+        Animal bluejay = new Animal("15", "Blue Jay", "test3", R.drawable.blue_jay);
         bluejay.setAnimalClass("bird");
         bluejay.setSpecies("Cyanocitta cristata");
 
@@ -148,6 +158,28 @@ public class DummyContent {
         grayTreeFrog.setAnimalClass("amphibian");
         grayTreeFrog.setSpecies("Hyla versicolor");
 
+        Animal elk =  new Animal("26", "Elk", "test3", R.drawable.elk);
+        elk.setAnimalClass("mammal");
+        elk.setSpecies("Cervus canadensis");
+
+        Animal riverOtter = new Animal("27", "Northern River Otter", "test3",
+                R.drawable.north_american_river_otter);
+        riverOtter.setAnimalClass("mammal");
+        riverOtter.setSpecies("Lontra canadensis");
+
+        Animal paintedTurtle = new Animal("28", "Painted Turtle", "test3",
+                R.drawable.painted_turtle);
+        paintedTurtle.setAnimalClass("reptile");
+        paintedTurtle.setSpecies("Chrysemys picta");
+
+        Animal snowshoeHare = new Animal("29", "Snowshoe Hare", "test3", R.drawable.snowshoe_hare);
+        snowshoeHare.setAnimalClass("mammal");
+        snowshoeHare.setSpecies("Lepus americanus");
+
+        Animal barred_owl = new Animal("30", "Barred Owl", "test3", R.drawable.barred_owl);
+        barred_owl.setAnimalClass("bird");
+        barred_owl.setSpecies("Strix varia");
+
         //Add animals to universal animal list
         addItem(beaver);
         addItem(coyote);
@@ -174,6 +206,11 @@ public class DummyContent {
         addItem(fiveLinkedSkink);
         addItem(americanMartin);
         addItem(grayTreeFrog);
+        addItem(elk);
+        addItem(riverOtter);
+        addItem(paintedTurtle);
+        addItem(snowshoeHare);
+        addItem(barred_owl);
 
         //Adding Mammals to their associated class lists
         for (Animal animal : ITEMS)

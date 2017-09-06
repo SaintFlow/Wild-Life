@@ -8,18 +8,14 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Build;
-import android.os.Environment;
-import android.os.ParcelFileDescriptor;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
-import android.support.annotation.IdRes;
+import android.support.annotation.NonNull;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
@@ -28,37 +24,30 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileDescriptor;
+
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Random;
-
+import java.util.Locale;
 import commonflow.wildlife.dummy.Animal;
 import commonflow.wildlife.dummy.AnimalPicture;
 import commonflow.wildlife.dummy.DBHandler;
 import commonflow.wildlife.dummy.DummyContent;
 import commonflow.wildlife.dummy.Encyclopedia;
-import commonflow.wildlife.dummy.FileChecker;
 
 /**
  * A fragment representing a single Animal detail screen.
@@ -83,15 +72,15 @@ public class AnimalDetailFragment extends Fragment {
      * fragment (e.g. upon screen orientation changes).
      */
 
-    private ImageView ivImage;
+    ImageView ivImage;
 
     private static final int MY_PERMISSIONS_READ_EXTERNAL_STORAGE = 0;
-    private static final int MY_PERMISSION_MANAGE_DOCUMENTS = 1;
+    //private static final int MY_PERMISSION_MANAGE_DOCUMENTS = 1;
     private static final int REQUEST_CAMERA = 2;
     private static final int SELECT_FILE = 1;
     //private Boolean result = false;
     private CharSequence userChosenTask = "";
-    private LinearLayout li;
+    LinearLayout li;
 
     DBHandler db;
 
@@ -144,11 +133,24 @@ public class AnimalDetailFragment extends Fragment {
                     (LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
             li.setOrientation(LinearLayout.VERTICAL);
 
+            //Add species name below collapsing bar
+            if (!mItem.getSpecies().isEmpty())
+            {
+                TextView speciesView = new TextView(getContext());
+                speciesView.setText(mItem.getSpecies());
+                speciesView.setTypeface(null, Typeface.ITALIC);
 
+                /*LinearLayout.LayoutParams textParams = new LinearLayout.LayoutParams
+                        (LinearLayout.LayoutParams.MATCH_PARENT,
+                                LinearLayout.LayoutParams.WRAP_CONTENT);*/
+                speciesView.setGravity(Gravity.CENTER);
+                li.addView(speciesView);
+            }
 
             //Setting and adding the Select button to the layout
-            buttonTest.setLayoutParams(liParams);
-            buttonTest.setText("Add a Photo");
+            //buttonTest.setLayoutParams(liParams);
+            //buttonTest.setMaxWidth(8);
+            buttonTest.setText(R.string.add_photo);
             buttonTest.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -158,7 +160,8 @@ public class AnimalDetailFragment extends Fragment {
             li.addView(buttonTest);
             int i = 0;
             ivImage = new ImageView(getActivity());
-            ViewGroup.LayoutParams imageParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+            ViewGroup.LayoutParams imageParams = new ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.WRAP_CONTENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT);
             ivImage.setLayoutParams(imageParams);
             li.addView(ivImage);
@@ -179,7 +182,8 @@ public class AnimalDetailFragment extends Fragment {
                     b = BitmapFactory.decodeStream(fis);
                     ImageView temp = new ImageView(getContext());
 
-                    SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getContext());
+                    SharedPreferences sharedPref =
+                            PreferenceManager.getDefaultSharedPreferences(getContext());
                     Boolean isHD = sharedPref.getBoolean("hd_key", false);
 
                     //Check if we should load an HD image or not
@@ -324,8 +328,8 @@ public class AnimalDetailFragment extends Fragment {
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode,
-                                           String permissions[], int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull
+                                           String permissions[], @NonNull int[] grantResults) {
         Log.d("request Result", "onRequestPermissionsResult");
         switch (requestCode) {
             case MY_PERMISSIONS_READ_EXTERNAL_STORAGE: {
@@ -409,10 +413,10 @@ public class AnimalDetailFragment extends Fragment {
             intent.setAction(Intent.ACTION_OPEN_DOCUMENT);
             intent.addCategory(Intent.CATEGORY_OPENABLE);
         }
-        startActivityForResult(intent.createChooser(intent, "Select File"), SELECT_FILE);
+        startActivityForResult(Intent.createChooser(intent, "Select File"), SELECT_FILE);
     }
 
-    private Bitmap getBitmapFromUri(Uri uri) throws IOException {
+    /*private Bitmap getBitmapFromUri(Uri uri) throws IOException {
 
         ParcelFileDescriptor parcelFileDescriptor =
                 getActivity().getContentResolver().openFileDescriptor(uri, "r");
@@ -420,7 +424,7 @@ public class AnimalDetailFragment extends Fragment {
         Bitmap image = BitmapFactory.decodeFileDescriptor(fileDescriptor);
         parcelFileDescriptor.close();
         return image;
-    }
+    }*/
 
     private AnimalPicture createAnimalPicture(String url)
     {
@@ -436,8 +440,8 @@ public class AnimalDetailFragment extends Fragment {
         Log.d("selectfromGal", "here");
         if (data != null)
         {
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
-            Random random = new Random();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ",
+                    Locale.CANADA);
             //String filename = mItem.content + String.format("%s.%s", sdf.format( new Date() ),
             //random.nextInt(9));
             String filename = mItem.content + sdf.format(new Date());
@@ -472,38 +476,38 @@ public class AnimalDetailFragment extends Fragment {
         }
     }
 
-
     private void onCaptureImageResult(Intent data) {
 
-
-        Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
-
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ", Locale.CANADA);
         String filename = mItem.content + sdf.format(new Date());
         AnimalPicture ac = createAnimalPicture(filename);
         db.addNewAnimalPicture(ac);
-
         FileOutputStream out = null;
+        Bitmap bm;
         try {
-            if (thumbnail != null) {
-                out = getContext().openFileOutput(filename, Context.MODE_PRIVATE);
-                thumbnail.compress(Bitmap.CompressFormat.JPEG, 100, out);
 
-                //To update the fragment to display the image, detach it, attach it, then commit
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.detach(this).attach(this).commit();
-            }
+            bm = MediaStore.Images.Media.getBitmap(
+                    getActivity().getApplicationContext().getContentResolver(),data.getData());
+            out = getContext().openFileOutput(filename, Context.MODE_PRIVATE);
+            bm.compress(Bitmap.CompressFormat.JPEG, 100, out);
 
-        } catch (FileNotFoundException e) {
+            //To update the fragment to display the image, detach it, attach it, then commit
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            ft.detach(this).attach(this).commit();
+
+        } catch (Exception e)
+        {
             e.printStackTrace();
-        } finally {
+        } finally
+        {
             if (out != null)
+            {
                 try {
                     out.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+            }
         }
-
     }
 }

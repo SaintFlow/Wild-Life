@@ -2,6 +2,8 @@ package commonflow.wildlife.dummy;
 
 
 /**
+ * Animal Class, containing the name and ID. Used for animal pictures and for displaying
+ * the list of animals in the menus, as well as the AnimalDetailActivity.
  * Created by Randy on 7/1/2017.
  */
 public class Animal
@@ -45,6 +47,11 @@ public class Animal
 
     public void setSpecies(String species) {
         this.species = species;
+    }
+
+    public String getSpecies()
+    {
+        return species;
     }
 
     @Override

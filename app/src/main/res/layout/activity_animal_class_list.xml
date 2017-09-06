@@ -33,7 +33,7 @@
                 android:background="@color/lightBlue1"
                 android:layout_margin="@dimen/text_margin"
                 android:layout_weight="1.0"
-                android:text="Mammals" />
+                android:text="@string/mammals_class_list" />
 
             <Button
                 android:id="@+id/birds_button"
@@ -42,7 +42,7 @@
                 android:background="@color/lightBlue2"
                 android:layout_margin="@dimen/text_margin"
                 android:layout_weight="1.0"
-                android:text="Birds" />
+                android:text="@string/birds_class_list" />
 
         </LinearLayout>
 
@@ -59,8 +59,7 @@
                 android:background="@android:color/holo_blue_light"
                 android:layout_margin="@dimen/text_margin"
                 android:layout_weight="1.0"
-                android:text="Fish"
-                android:textColor="#FFFFFF"/>
+                android:text="@string/fish_class_list" />
 
             <Button
                 android:id="@+id/reptiles_button"
@@ -69,7 +68,7 @@
                 android:background="@color/lightBlue3"
                 android:layout_margin="@dimen/text_margin"
                 android:layout_weight="1.0"
-                android:text="Reptiles" />
+                android:text="@string/reptiles_class_list" />
 
         </LinearLayout>
         <LinearLayout
@@ -85,8 +84,7 @@
                 android:background="@android:color/holo_blue_light"
                 android:layout_margin="@dimen/text_margin"
                 android:layout_weight="1.0"
-                android:text="Amphibians"
-                android:textColor="#FFFFFF"/>
+                android:text="@string/amphibians_class_list" />
 
             <Button
                 android:id="@+id/anthropods_button"
@@ -95,7 +93,7 @@
                 android:background="@color/lightBlue3"
                 android:layout_margin="@dimen/text_margin"
                 android:layout_weight="1.0"
-                android:text="Anthropods" />
+                android:text="@string/anthropods_class_list" />
 
         </LinearLayout>
     </LinearLayout>
