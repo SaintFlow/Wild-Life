@@ -1,6 +1,16 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        CommonFlow {
+            keyAlias 'CommonFlow'
+            keyPassword 'yugiohsezime6'
+            storeFile file('C:/Users/Randy/Documents/Wild-Life/wildkey.jks')
+            storePassword 'yugiohsezime6'
+        }
+        config {
+        }
+    }
     compileSdkVersion 24
     buildToolsVersion "24.0.1"
     defaultConfig {
@@ -14,6 +24,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            zipAlignEnabled true
         }
     }
     productFlavors {

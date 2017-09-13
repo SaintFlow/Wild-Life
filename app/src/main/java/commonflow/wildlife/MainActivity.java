@@ -17,7 +17,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.main_toolbar);
-        toolbar.setTitle("Wild-Life");
+        toolbar.setTitle("Wild Life");
+        setTitle("Wild Life");
         setSupportActionBar(toolbar);
 
         PreferenceManager.setDefaultValues(this, R.xml.preference, false);

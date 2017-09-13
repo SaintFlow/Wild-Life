@@ -22,7 +22,7 @@
         </activity>
         <activity
             android:name=".AnimalDetailActivity"
-            android:label="@string/title_animal_detail"
+            android:label="@string/app_name"
             android:parentActivityName=".AnimalListActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -34,21 +34,22 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".MainActivity"
-            android:label="@string/title_activity_main"
+            android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AnimalClassList">
+        <activity android:name=".AnimalClassList"
+            android:label="@string/app_name">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".SpeciesHelpActivity"
-            android:label="@string/title_activity_species_help"
+            android:label="@string/app_name"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -57,7 +58,7 @@
         </activity>
         <activity
             android:name=".OptionsActivity"
-            android:label="@string/title_activity_options"
+            android:label="@string/app_name"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
