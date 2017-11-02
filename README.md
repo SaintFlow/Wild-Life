@@ -1,5 +1,5 @@
 # Wild-Life
-This is the source code for the Wild-Life Android application, soon to be up on Google Play for free.
+This is the source code for the Wild-Life Android application, now up on Google Play store for free. [Click here](https://play.google.com/store/apps/details?id=commonflow.wildlife) to download the app on your device.
 
 ## What is Wild-Life?
 Wild-Life is an Android application for displaying your photography of animals of different species, alongside an informative encyclopedia.
